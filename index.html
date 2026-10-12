@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lumi Lux — Creative Studio | Estúdio de fotografia e vídeo na Amadora</title>
+<meta name="description" content="Estúdio de fotografia e vídeo para alugar na Amadora, Lisboa. 114 m² de planta aberta com iluminação profissional montada. A partir de 30 € por hora.">
+<meta name="theme-color" content="#0F0F0E">
+
+<link rel="canonical" href="https://lumiluxstudio.vercel.app/">
+<!-- Pré-visualização ao partilhar o link (WhatsApp, Instagram, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lumi Lux — Creative Studio">
+<meta property="og:description" content="Estúdio de fotografia e vídeo para alugar na Amadora. Reserva por hora ou dia inteiro.">
+<meta property="og:image" content="https://lumiluxstudio.vercel.app/img/hero-lounge.webp">
+<meta property="og:url" content="https://lumiluxstudio.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  body{margin:0;-webkit-font-smoothing:antialiased;}
+  a{text-decoration:none;color:inherit;}
+  .llx-nav-link{position:relative;}
+  .llx-nav-link::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:currentColor;transition:right .28s ease;}
+  .llx-nav-link:hover::after{right:0;}
+  .llx-btn-dark{background:#0F0F0E;color:#FAFAF6;border:1px solid #0F0F0E;border-radius:999px;transition:opacity .2s ease;}
+  .llx-btn-dark:hover{opacity:.82;}
+  .llx-btn-outline{background:transparent;color:#0F0F0E;border:1px solid #0F0F0E;border-radius:999px;transition:background .2s ease,color .2s ease;}
+  .llx-btn-outline:hover{background:#0F0F0E;color:#FAFAF6;}
+  .llx-btn-outline-light{background:transparent;color:#FAFAF6;border:1px solid rgba(250,250,246,.55);border-radius:999px;transition:background .2s ease,color .2s ease,border-color .2s ease;}
+  .llx-btn-outline-light:hover{background:#FAFAF6;color:#0F0F0E;border-color:#FAFAF6;}
+  .llx-btn-light{background:#FAFAF6;color:#0F0F0E;border:1px solid #FAFAF6;border-radius:999px;transition:transform .2s ease,opacity .2s ease;}
+  .llx-btn-light:hover{opacity:.9;transform:translateY(-1px);}
+  .llx-card{transition:transform .3s ease;}
+  .llx-card:hover{transform:translateY(-5px);}
+  .llx-social{transition:opacity .2s ease;}
+  .llx-social:hover{opacity:.6;}
+  .llx-tile{transition:border-color .25s ease,transform .25s ease;}
+  .llx-tile:hover{border-color:#0F0F0E;transform:translateY(-3px);}
+  .llx-lang{border:none;cursor:pointer;font-family:'Jost',sans-serif;border-radius:999px;transition:background .2s ease,color .2s ease;}
+  .llx-ig-nav{transition:background .2s ease,color .2s ease,border-color .2s ease;}
+  .llx-ig-nav:hover{background:#FAFAF6;color:#0F0F0E;border-color:#FAFAF6;}
+  .llx-ig-float{transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 6px 24px rgba(12,12,11,.28);}
+  .llx-ig-float:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(12,12,11,.36);}
+  .llx-ig-float .llx-ig-word{max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .3s ease,opacity .25s ease,margin-left .3s ease;margin-left:0;}
+  .llx-ig-float:hover .llx-ig-word{max-width:190px;opacity:1;margin-left:10px;}
+
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+  :focus-visible{outline:2px solid #F5C87A;outline-offset:3px;}
+  .llx-lang[aria-pressed="true"]{background:#FAFAF6;color:#0F0F0E;}
+  .llx-lang[aria-pressed="false"]{background:transparent;color:rgba(250,250,246,.72);}
+  .llx-faq-a{margin:0 0 26px;font-size:14px;line-height:1.7;color:rgba(250,250,246,.72);max-width:64ch;}
+  .llx-faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    background:transparent;border:none;padding:26px 0;cursor:pointer;color:#FAFAF6;text-align:left;
+    font-family:'Jost',sans-serif;font-size:16px;}
+  .llx-faq-q svg{flex-shrink:0;transition:transform .25s ease;}
+  .llx-faq-q[aria-expanded="true"] svg{transform:rotate(180deg);}
+  .llx-faq-item{border-bottom:1px solid rgba(250,250,246,.18);}
+  .llx-slider img{opacity:0;transition:opacity .7s ease;}
+  .llx-slider img.is-on{opacity:1;}
+  .llx-dot span{background:rgba(250,250,246,.45);transition:background .25s ease;}
+  .llx-dot[aria-pressed="true"] span{background:#FAFAF6;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none!important;animation:none!important;}
+  }
+  @media (max-width:900px){
+    [style*="grid-template-columns:repeat(12"]{grid-template-columns:1fr!important;}
+    [style*="grid-column:1 / span 7"],[style*="grid-column:8 / span 5"]{grid-column:1 / -1!important;}
+    [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+    [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important;}
+    [style*="grid-template-columns:repeat(6"]{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+    [style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr!important;}
+  }
+  @media (max-width:1180px){
+    .llx-navlinks{gap:20px!important;}
+    .llx-navlinks a{font-size:11px!important;letter-spacing:.1em!important;}
+  }
+  @media (max-width:900px){
+    .llx-sidelabel{display:none!important;}
+    .llx-navlinks{display:none!important;}
+  }
+  @media (max-width:760px){
+    .llx-navbar{padding-left:16px!important;padding-right:16px!important;gap:10px!important;}
+    .llx-nav-cta{padding:11px 16px!important;font-size:11px!important;letter-spacing:.08em!important;}
+    [style*="padding:120px 0"],[style*="padding:130px"],[style*="padding:140px"]{padding-top:72px!important;padding-bottom:72px!important;}
+    [style*="padding:0 40px"],[style*="padding:0 40px;"]{padding-left:20px!important;padding-right:20px!important;}
+    [style*="padding:120px 40px"],[style*="padding:130px 40px"]{padding:72px 20px!important;}
+  }
+  @media (max-width:620px){
+    .llx-ig-nav{display:none!important;}
+  }
+  @media (max-width:560px){
+    [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr!important;}
+    [style*="grid-template-columns:repeat(6"]{grid-template-columns:1fr!important;}
+  }
+</style>
+</head>
+<body>
+
+<div style="width:100%;min-height:100vh;background:#FAFAF6;font-family:'Jost',sans-serif;color:#0F0F0E;box-sizing:border-box;overflow-x:hidden;">
+
+  <!-- ATALHO FLUTUANTE INSTAGRAM -->
+  <a href="https://www.instagram.com/lumifocus_/" target="_blank" rel="noopener" aria-label="Instagram do Lumi Lux — abre em nova janela" data-t-aria-label="nav.igLabel" class="llx-ig-float" style="position:fixed;right:26px;bottom:26px;z-index:40;display:flex;align-items:center;background:#0F0F0E;color:#FAFAF6;border:1px solid rgba(250,250,246,.22);border-radius:999px;padding:16px 20px;box-sizing:border-box;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0;"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+    <span class="llx-ig-word" style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;"><span data-t="nav.igCta">Ver no Instagram</span></span>
+  </a>
+
+  <!-- NAV — dark -->
+  <div style="position:sticky;top:0;z-index:30;width:100%;background:#0F0F0EF2;backdrop-filter:blur(12px);border-bottom:1px solid rgba(250,250,246,.14);box-sizing:border-box;">
+    <div class="llx-navbar" style="max-width:1400px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:28px;">
+
+      <a href="#topo" aria-label="Lumi Lux — Creative Studio" style="display:flex;align-items:center;flex-shrink:0;">
+        <img src="img/logo-white.webp" alt="Lumi Lux — Creative Studio" style="height:40px;width:auto;display:block;">
+      </a>
+
+      <div class="llx-navlinks" style="display:flex;align-items:center;gap:32px;color:#FAFAF6;">
+        <a href="#sobre" class="llx-nav-link" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;"><span data-t="nav.about">Sobre</span></a>
+        <a href="#espacos" class="llx-nav-link" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;"><span data-t="nav.space">Espaço</span></a>
+        <a href="#servicos" class="llx-nav-link" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;"><span data-t="nav.services">Serviços</span></a>
+        <a href="#precos" class="llx-nav-link" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;"><span data-t="nav.prices">Preços</span></a>
+        <a href="#contato" class="llx-nav-link" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;"><span data-t="nav.contact">Contato</span></a>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:18px;flex-shrink:0;">
+
+        <a href="https://www.instagram.com/lumifocus_/" target="_blank" rel="noopener" aria-label="Instagram do Lumi Lux — abre em nova janela" data-t-aria-label="nav.igLabel" class="llx-ig-nav" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;border:1px solid rgba(250,250,246,.3);color:#FAFAF6;flex-shrink:0;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+
+        <div style="display:flex;align-items:center;background:rgba(250,250,246,.10);border-radius:999px;padding:3px;">
+          <button id="langPt" type="button" aria-pressed="true" aria-label="Português" style="padding:11px 17px;font-size:12px;letter-spacing:.12em;font-weight:600;" class="llx-lang">PT</button>
+          <button id="langEn" type="button" aria-pressed="false" aria-label="English" style="padding:11px 17px;font-size:12px;letter-spacing:.12em;font-weight:600;" class="llx-lang">EN</button>
+        </div>
+        <a href="#reservar" class="llx-btn-light llx-nav-cta" style="padding:12px 24px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;font-weight:500;"><span data-t="nav.book">Reservar</span></a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div id="topo" style="position:relative;width:100%;height:100vh;min-height:720px;max-height:1000px;background:#0F0F0E;overflow:hidden;box-sizing:border-box;">
+
+    <img src="img/hero-lounge.webp" alt="Sala de estar do Lumi Lux — Creative Studio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;">
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(12,12,11,.95) 0%, rgba(12,12,11,.86) 38%, rgba(12,12,11,.42) 78%, rgba(12,12,11,.55) 100%);"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(58% 52% at 80% 16%, rgba(255,216,157,.30), rgba(255,216,157,0) 72%);"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to top, rgba(12,12,11,.92), rgba(12,12,11,0));"></div>
+
+    <div class="llx-sidelabel" aria-hidden="true" style="position:absolute;right:26px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:10px;letter-spacing:.44em;text-transform:uppercase;color:rgba(250,250,246,.42);white-space:nowrap;">Lumi Lux — Creative Studio</div>
+
+    <div style="position:relative;z-index:2;height:100%;max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;color:#FAFAF6;">
+      <div style="display:flex;flex-direction:column;gap:30px;max-width:1000px;padding-bottom:70px;">
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="width:7px;height:7px;border-radius:999px;background:#F5C87A;display:block;"></span>
+          <span style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(250,250,246,.8);"><span data-t="hero.eyebrow">Creative Studio</span></span>
+        </div>
+
+        <h1 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(36px,6.4vw,92px);line-height:.98;letter-spacing:-.018em;max-width:19ch;"><span data-t="hero.title">UM ESPAÇO PARA A TUA CRIATIVIDADE.</span></h1>
+
+        <p style="margin:0;font-size:clamp(16px,1.35vw,19px);line-height:1.65;font-weight:300;color:rgba(250,250,246,.82);max-width:54ch;"><span data-t="hero.subtitle">Aluga o nosso estúdio de fotografia e vídeo na Amadora e dá vida às tuas ideias. Para fotógrafos, videomakers e criadores de conteúdo que procuram um espaço versátil para as suas produções.</span></p>
+
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding-top:6px;">
+          <a href="#reservar" class="llx-btn-light" style="padding:17px 36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;"><span data-t="hero.book">Reservar estúdio</span></a>
+          <a href="#espacos" class="llx-btn-outline-light" style="padding:17px 36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;"><span data-t="hero.viewSpace">Explorar o espaço</span></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;justify-content:center;padding:0 40px 30px;box-sizing:border-box;">
+      <a href="#sobre" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(250,250,246,.65);font-size:10px;letter-spacing:.22em;text-transform:uppercase;">
+        <span><span data-t="hero.scroll">Descer</span></span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.4" style="opacity:.65;"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- QUICK FACTS STRIP -->
+  <div style="width:100%;border-bottom:1px solid #DAD9CE;box-sizing:border-box;">
+    <div style="max-width:1400px;margin:0 auto;padding:36px 40px;box-sizing:border-box;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.03em;"><span data-t="quickFacts.area">114 m²</span></div>
+        <div style="font-size:11px;letter-spacing:.14em;color:#6B675F;text-transform:uppercase;"><span data-t="quickFacts.areaLabel">área livre</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.03em;"><span data-t="quickFacts.open">Aberto</span></div>
+        <div style="font-size:11px;letter-spacing:.14em;color:#6B675F;text-transform:uppercase;"><span data-t="quickFacts.openLabel">sem divisórias</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.03em;"><span data-t="quickFacts.days">7 dias</span></div>
+        <div style="font-size:11px;letter-spacing:.14em;color:#6B675F;text-transform:uppercase;"><span data-t="quickFacts.daysLabel">por semana, com agendamento</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:34px;letter-spacing:-.03em;"><span data-t="quickFacts.price">30 €</span></div>
+        <div style="font-size:11px;letter-spacing:.14em;color:#6B675F;text-transform:uppercase;"><span data-t="quickFacts.priceLabel">a partir de / hora</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <div id="sobre" style="background:#0F0F0E;color:#FAFAF6;padding:140px 64px;box-sizing:border-box;">
+    <div style="max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:44px;">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(44px,6vw,76px);line-height:.96;letter-spacing:-.04em;"><span data-t="sobre.title">Lumi Lux</span></h2>
+      <p style="margin:0;font-size:clamp(19px,2.1vw,27px);line-height:1.52;font-weight:300;color:rgba(250,250,246,.92);"><span data-t="sobre.p1">O Lumi Lux é um estúdio de fotografia e vídeo na Amadora, a dois minutos a pé da estação e a poucos minutos do centro de Lisboa.</span></p>
+      <p style="margin:0;font-size:clamp(19px,2.1vw,27px);line-height:1.52;font-weight:300;color:rgba(250,250,246,.92);"><span data-t="sobre.p2">São 114 m² de planta aberta, sem divisórias, com iluminação profissional permanentemente montada. Por ser um espaço em cave, a luz é inteiramente controlada — o resultado é o mesmo às nove da manhã ou às oito da noite, faça sol ou faça chuva.</span></p>
+      <p style="margin:0;font-size:clamp(19px,2.1vw,27px);line-height:1.52;font-weight:300;color:rgba(250,250,246,.92);"><span data-t="sobre.p3">O estúdio funciona por marcação, sete dias por semana, com check-in autónomo. A reserva dá acesso ao espaço e a todo o equipamento, sem custos adicionais.</span></p>
+    </div>
+  </div>
+
+  <!-- O ESPAÇO -->
+  <div id="espacos" style="background:#EDE7DD;box-sizing:border-box;padding:120px 0;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:700px;margin-bottom:60px;">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="espaco.eyebrow">O espaço</span></div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="espaco.title">114 m² abertos, sem paredes no meio do caminho.</span></h2>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#6B675F;max-width:56ch;"><span data-t="espaco.body">Um único galpão, sem divisórias internas — você organiza cenário, luz e equipe do jeito que o trabalho pedir, sem trocar de sala.</span></p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px;">
+        <div style="grid-column:1 / span 7;">
+          <div style="aspect-ratio:16/10;width:100%;overflow:hidden;box-sizing:border-box;background:#DAD9CE;">
+            <img src="img/estudio-principal.webp" alt="Área principal do estúdio, aberta, com fundo infinito e iluminação montada" data-t-alt="espaco.photoAlt" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+        </div>
+        <div style="grid-column:8 / span 5;display:flex;flex-direction:column;justify-content:center;gap:24px;background:#FAFAF6;border:1px solid #DAD9CE;padding:40px;box-sizing:border-box;">
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:14px;padding-bottom:12px;border-bottom:1px solid #DAD9CE;"><span style="color:#6B675F;"><span data-t="espaco.area">Área</span></span><span style="font-weight:500;text-align:right;"><span data-t="espaco.areaVal">114 m²</span></span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:14px;padding-bottom:12px;border-bottom:1px solid #DAD9CE;"><span style="color:#6B675F;"><span data-t="espaco.ceiling">Pé-direito</span></span><span style="font-weight:500;text-align:right;"><span data-t="espaco.ceilingVal">[X m]</span></span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:14px;padding-bottom:12px;border-bottom:1px solid #DAD9CE;"><span style="color:#6B675F;"><span data-t="espaco.divisions">Divisórias</span></span><span style="font-weight:500;text-align:right;"><span data-t="espaco.divisionsVal">Nenhuma — planta livre</span></span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:14px;padding-bottom:12px;border-bottom:1px solid #DAD9CE;"><span style="color:#6B675F;"><span data-t="espaco.location">Localização</span></span><span style="font-weight:500;text-align:right;"><span data-t="espaco.locationVal">1–2 min a pé da Estação da Amadora</span></span></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;font-size:14px;"><span style="color:#6B675F;"><span data-t="espaco.light">Luz</span></span><span style="font-weight:500;text-align:right;"><span data-t="espaco.lightVal">100% montada — espaço em cave, sem luz natural</span></span></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;border-top:1px solid #DAD9CE;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:26px;letter-spacing:-.03em;">30 €<span style="font-family:'Jost',sans-serif;font-weight:400;font-size:13px;color:#6B675F;letter-spacing:0;"><span data-t="espaco.priceSuffix">/hora</span></span></div>
+            <a href="#reservar" class="llx-btn-dark" style="padding:13px 26px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;"><span data-t="espaco.book">Reservar</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <div id="servicos" style="max-width:1400px;margin:0 auto;padding:120px 40px;box-sizing:border-box;">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:700px;margin-bottom:60px;">
+      <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="servicos.eyebrow">Serviços</span></div>
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="servicos.title">Para o que você pode usar o Lumi Lux.</span></h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;">
+
+      <div class="llx-card" style="display:flex;flex-direction:column;gap:20px;">
+        <div style="aspect-ratio:4/5;width:100%;overflow:hidden;box-sizing:border-box;background:#DAD9CE;">
+          <img src="img/fundos.webp" alt="Fundos e cenários disponíveis no estúdio" data-t-alt="servicos.c1alt" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;"><span data-t="servicos.c1t">Moda &amp; E-commerce</span></h3>
+          <p style="margin:0;font-size:14px;line-height:1.65;color:#6B675F;"><span data-t="servicos.c1b">Fotografe seu catálogo com fundo neutro e luz consistente, sem trocar de local.</span></p>
+        </div>
+      </div>
+
+      <div class="llx-card" style="display:flex;flex-direction:column;gap:20px;">
+        <div class="llx-slider" style="position:relative;aspect-ratio:4/5;width:100%;overflow:hidden;box-sizing:border-box;background:#DAD9CE;">
+          <img src="img/retrato-1.webp" alt="Editorial de moda a preto e branco, vestido de jornal, fotografado no estúdio" data-t-alt="servicos.c2alt1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .7s ease;">
+          <img src="img/retrato-2.webp" alt="Retrato de beleza com luz quente e argolas douradas, fotografado no estúdio" data-t-alt="servicos.c2alt2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .7s ease;">
+          <div style="position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(to top, rgba(12,12,11,.5), rgba(12,12,11,0));"></div>
+          <div style="position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:9px;">
+            <button type="button" class="llx-dot" data-slide="0" aria-pressed="true" aria-label="Ver primeira fotografia" data-t-aria-label="servicos.slide1" style="width:30px;height:30px;padding:0;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+              <span style="display:block;width:100%;height:3px;border-radius:999px;"></span>
+            </button>
+            <button type="button" class="llx-dot" data-slide="1" aria-pressed="false" aria-label="Ver segunda fotografia" data-t-aria-label="servicos.slide2" style="width:30px;height:30px;padding:0;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+              <span style="display:block;width:100%;height:3px;border-radius:999px;"></span>
+            </button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;"><span data-t="servicos.c2t">Retrato &amp; Headshot</span></h3>
+          <p style="margin:0;font-size:14px;line-height:1.65;color:#6B675F;"><span data-t="servicos.c2b">Sessões individuais ou para equipes inteiras, no mesmo espaço e no mesmo dia.</span></p>
+        </div>
+      </div>
+
+      <div class="llx-card" style="display:flex;flex-direction:column;gap:20px;">
+        <div style="aspect-ratio:4/5;width:100%;overflow:hidden;box-sizing:border-box;background:#DAD9CE;">
+          <img src="img/camarim.webp" alt="Cantinho de maquiagem com espelho iluminado" data-t-alt="servicos.c3alt" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;"><span data-t="servicos.c3t">Beleza &amp; Still</span></h3>
+          <p style="margin:0;font-size:14px;line-height:1.65;color:#6B675F;"><span data-t="servicos.c3b">Setups delicados para still life, produtos e still de beleza.</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ESTRUTURA / AMENITIES -->
+  <div id="comofunciona" style="background:#EDE7DD;padding:120px 0;box-sizing:border-box;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:700px;margin-bottom:60px;">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="estrutura.eyebrow">Estrutura</span></div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="estrutura.title">O que já está incluso na reserva.</span></h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;">
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.44 1 1.16 1 1.94V16h5v-.16c0-.78.4-1.5 1-1.94A6 6 0 0 0 12 3Z"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i1t">Iluminação profissional</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i1b">Flashes, softboxes e refletores prontos para uso, sem custo extra.</span></p>
+        </div>
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><path d="M2 9c5.5-5 14.5-5 20 0M5 13c3.6-3.2 9.4-3.2 13 0M8.4 17c2-1.7 5.2-1.7 7.2 0"/><circle cx="12" cy="20" r="1"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i2t">Wi-Fi de alta velocidade</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i2b">Conexão estável para transferência e envio de arquivos no local.</span></p>
+        </div>
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 3v7h4a3 3 0 0 0 0-6H9"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i3t">Estacionamento gratuito</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i3b">Estacionamento gratuito nas redondezas, sujeito a disponibilidade — não há lugares reservados.</span></p>
+        </div>
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><path d="M12 3v6M9 6l3 3 3-3M5 14a7 7 0 0 1 14 0v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Z"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i4t">Climatização</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i4b">Ambiente climatizado para o conforto da equipe e do modelo.</span></p>
+        </div>
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><path d="M12 4a2 2 0 1 1 2 2c-.5 0-1-.2-1.4-.5M12 6l-9 5.5 2 1.2L12 9l7 3.7 2-1.2L12 6Z"/><path d="M5 12v7h14v-7"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i5t">Camarim para vestir</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i5b">Espaço reservado para troca de roupa e retoques de produção.</span></p>
+        </div>
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><rect x="5" y="10" width="14" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i6t">Check-in autónomo</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i6b">Como num Airbnb: chave do prédio num cofre na entrada e fechadura inteligente na porta do estúdio — acesso no horário reservado, sem espera.</span></p>
+        </div>
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><path d="M12 3s6 7 6 11a6 6 0 1 1-12 0c0-4 6-11 6-11Z"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i7t">Casa de banho moderna</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i7b">Casa de banho própria, dentro do estúdio.</span></p>
+        </div>
+
+        <div class="llx-tile" style="display:flex;flex-direction:column;gap:14px;background:#FAFAF6;border:1px solid #DAD9CE;padding:28px;box-sizing:border-box;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><rect x="7" y="3" width="10" height="18" rx="3"/><circle cx="12" cy="8" r="1.8"/><circle cx="12" cy="15" r="2.4"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="estrutura.i8t">Coluna Bluetooth</span></div>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="estrutura.i8b">Música própria durante a sessão, ligada por Bluetooth.</span></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- EQUIPAMENTO -->
+  <div id="equipamento" style="padding:120px 0;box-sizing:border-box;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:700px;margin-bottom:60px;">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="equipamento.eyebrow">O que está incluído</span></div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="equipamento.title">Equipamento e produção, sem custo extra.</span></h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;">
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <h3 style="margin:0;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6B675F;"><span data-t="equipamento.col1">Equipamento fotográfico</span></h3>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e1">Godox SK300II</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e2">Godox SK400III</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e3">Godox SL60W</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e4">Godox MS300</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e5">2× softbox 30×120 com grid</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e6">Octabox 60 e 90</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e7">C-stand</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e8">Refletores</span></li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <h3 style="margin:0;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6B675F;"><span data-t="equipamento.col2">Cenários e produção</span></h3>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e9">Fundos de papel — branco, bege, cinza e castanho</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e10">Mesa de maquiagem</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e11">Poltrona, bancos e cadeira</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e12">Espelho de corpo inteiro</span></li>
+            <li style="font-size:15px;border-top:1px solid #DAD9CE;padding-top:14px;"><span data-t="equipamento.e13">Gimbal para telemóvel</span></li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin:32px 0 0;font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="equipamento.note">Softbox extra disponível mediante recomendação da equipe. Precisa de outro equipamento específico? Fale connosco antes da reserva.</span></p>
+    </div>
+  </div>
+
+  <!-- PREÇOS -->
+  <div id="precos" style="background:#EDE7DD;padding:120px 0;box-sizing:border-box;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:700px;margin-bottom:60px;">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="precos.eyebrow">Preços</span></div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="precos.title">Quanto mais tempo você reserva, menor o valor por hora.</span></h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px;align-items:start;">
+
+        <div style="grid-column:1 / span 7;background:#FAFAF6;border:1px solid #DAD9CE;box-sizing:border-box;">
+          <div style="padding:18px 30px;border-bottom:1px solid #DAD9CE;">
+            <span style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#6B675F;"><span data-t="precos.listH">Escolha a duração</span></span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 30px;border-bottom:1px solid #DAD9CE;">
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:16px;font-weight:500;"><span data-t="precos.h1">1 hora</span></span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:23px;letter-spacing:-.03em;">30 €</span>
+            </div>
+            <a href="#reservar" class="llx-btn-dark" style="padding:13px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;"><span data-t="precos.book">Reservar</span></a>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 30px;border-bottom:1px solid #DAD9CE;">
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:16px;font-weight:500;"><span data-t="precos.h2">2 horas</span></span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:23px;letter-spacing:-.03em;">50 €</span>
+            </div>
+            <a href="#reservar" class="llx-btn-dark" style="padding:13px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;"><span data-t="precos.book">Reservar</span></a>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 30px;border-bottom:1px solid #DAD9CE;">
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:16px;font-weight:500;"><span data-t="precos.h3">3 horas</span></span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:23px;letter-spacing:-.03em;">70 €</span>
+            </div>
+            <a href="#reservar" class="llx-btn-dark" style="padding:13px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;"><span data-t="precos.book">Reservar</span></a>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 30px;border-bottom:1px solid #DAD9CE;">
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:16px;font-weight:500;"><span data-t="precos.h4">4 horas</span></span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:23px;letter-spacing:-.03em;">90 €</span>
+            </div>
+            <a href="#reservar" class="llx-btn-dark" style="padding:13px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;"><span data-t="precos.book">Reservar</span></a>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 30px;border-bottom:1px solid #DAD9CE;">
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:16px;font-weight:500;"><span data-t="precos.h5">5 horas</span></span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:23px;letter-spacing:-.03em;">115 €</span>
+            </div>
+            <a href="#reservar" class="llx-btn-dark" style="padding:13px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;"><span data-t="precos.book">Reservar</span></a>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 30px;border-bottom:1px solid #DAD9CE;">
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span style="font-size:16px;font-weight:500;"><span data-t="precos.h6">6 horas</span></span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:23px;letter-spacing:-.03em;">140 €</span>
+            </div>
+            <a href="#reservar" class="llx-btn-dark" style="padding:13px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;"><span data-t="precos.book">Reservar</span></a>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;background:#0F0F0E;color:#FAFAF6;">
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <span style="font-size:16px;font-weight:500;"><span data-t="precos.fullDay">Dia inteiro</span></span>
+              <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:27px;letter-spacing:-.035em;">200 €</span>
+              <span style="font-size:13px;line-height:1.5;color:rgba(250,250,246,.7);max-width:34ch;"><span data-t="precos.fullDayBody">Para produções, campanhas e gravações mais longas.</span></span>
+            </div>
+            <a href="#reservar" class="llx-btn-light" style="padding:13px 28px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;font-weight:500;"><span data-t="precos.book">Reservar</span></a>
+          </div>
+        </div>
+
+        <div style="grid-column:8 / span 5;display:flex;flex-direction:column;gap:22px;">
+          <div style="background:#FAFAF6;border:1px solid #DAD9CE;padding:34px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;"><span data-t="precos.extraT">Tempo extra incluído</span></div>
+            <p style="margin:0;font-size:14px;line-height:1.7;color:#6B675F;"><span data-t="precos.extraB">Todas as reservas incluem 15 a 30 minutos além do tempo contratado, para arrumar e deixar o espaço limpo antes de sair. O código da fechadura inteligente cobre esse período.</span></p>
+          </div>
+          <div style="background:#FAFAF6;border:1px solid #DAD9CE;padding:34px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.3"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/><path d="M6 15h4"/></svg>
+            <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;"><span data-t="precos.payT">Pagamento</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span style="border:1px solid #DAD9CE;border-radius:999px;padding:9px 16px;font-size:13px;white-space:nowrap;"><span data-t="precos.pay1">MB WAY</span></span>
+              <span style="border:1px solid #DAD9CE;border-radius:999px;padding:9px 16px;font-size:13px;white-space:nowrap;"><span data-t="precos.pay2">Transferência (IBAN)</span></span>
+              <span style="border:1px solid #DAD9CE;border-radius:999px;padding:9px 16px;font-size:13px;white-space:nowrap;"><span data-t="precos.pay3">Revolut</span></span>
+            </div>
+            <p style="margin:0;font-size:13px;line-height:1.7;color:#6B675F;"><span data-t="precos.payNote">Os dados de pagamento são enviados na confirmação da reserva.</span></p>
+          </div>
+
+          <p style="margin:0;font-size:13px;line-height:1.7;color:#6B675F;"><span data-t="precos.note">Reserva feita e paga por agendamento. Todos os valores incluem os itens listados em Estrutura.</span></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DEPOIMENTOS -->
+  <div id="depoimentos" style="padding:120px 0;box-sizing:border-box;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:700px;margin-bottom:60px;">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="depoimentos.eyebrow">Depoimentos</span></div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="depoimentos.title">Quem já gravou aqui.</span></h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;">
+
+        <div style="display:flex;flex-direction:column;gap:20px;border-top:2px solid #0F0F0E;padding-top:28px;box-sizing:border-box;">
+          <svg width="22" height="16" viewBox="0 0 24 18" fill="#DAD9CE"><path d="M0 18V9.5C0 4.3 3.4.7 8.6 0l.9 2.7C6.2 3.6 4.3 5.9 4.1 8.6H8.6V18H0Zm13 0V9.5c0-5.2 3.4-8.8 8.6-9.5l.9 2.7c-3.3.9-5.2 3.2-5.4 5.9H21.6V18H13Z"/></svg>
+          <p style="margin:0;font-size:17px;line-height:1.6;font-weight:300;"><span data-t="depoimentos.quote">[Depoimento do cliente sobre a experiência no estúdio.]</span></p>
+          <div style="font-size:12px;letter-spacing:.06em;color:#6B675F;"><span data-t="depoimentos.n1">[Nome do cliente] · [Fotógrafo(a)]</span></div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:20px;border-top:2px solid #0F0F0E;padding-top:28px;box-sizing:border-box;">
+          <svg width="22" height="16" viewBox="0 0 24 18" fill="#DAD9CE"><path d="M0 18V9.5C0 4.3 3.4.7 8.6 0l.9 2.7C6.2 3.6 4.3 5.9 4.1 8.6H8.6V18H0Zm13 0V9.5c0-5.2 3.4-8.8 8.6-9.5l.9 2.7c-3.3.9-5.2 3.2-5.4 5.9H21.6V18H13Z"/></svg>
+          <p style="margin:0;font-size:17px;line-height:1.6;font-weight:300;"><span data-t="depoimentos.quote">[Depoimento do cliente sobre a experiência no estúdio.]</span></p>
+          <div style="font-size:12px;letter-spacing:.06em;color:#6B675F;"><span data-t="depoimentos.n2">[Nome do cliente] · [Marca / Empresa]</span></div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:20px;border-top:2px solid #0F0F0E;padding-top:28px;box-sizing:border-box;">
+          <svg width="22" height="16" viewBox="0 0 24 18" fill="#DAD9CE"><path d="M0 18V9.5C0 4.3 3.4.7 8.6 0l.9 2.7C6.2 3.6 4.3 5.9 4.1 8.6H8.6V18H0Zm13 0V9.5c0-5.2 3.4-8.8 8.6-9.5l.9 2.7c-3.3.9-5.2 3.2-5.4 5.9H21.6V18H13Z"/></svg>
+          <p style="margin:0;font-size:17px;line-height:1.6;font-weight:300;"><span data-t="depoimentos.quote">[Depoimento do cliente sobre a experiência no estúdio.]</span></p>
+          <div style="font-size:12px;letter-spacing:.06em;color:#6B675F;"><span data-t="depoimentos.n3">[Nome do cliente] · [Criador(a) de conteúdo]</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div style="max-width:1400px;margin:0 auto;padding:0 40px 120px;box-sizing:border-box;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="instagram.eyebrow">Instagram</span></div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,2.8vw,36px);letter-spacing:-.03em;">@lumifocus_</h2>
+      </div>
+      <a href="https://www.instagram.com/lumifocus_/" target="_blank" rel="noopener" class="llx-nav-link" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;"><span data-t="instagram.follow">Seguir no Instagram</span></a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;">
+      <div style="aspect-ratio:1/1;overflow:hidden;box-sizing:border-box;background:#DAD9CE;"><img src="img/estudio-principal.webp" alt="Estúdio Lumi Lux" data-t-alt="instagram.alt" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="aspect-ratio:1/1;overflow:hidden;box-sizing:border-box;background:#DAD9CE;"><img src="img/camarim.webp" alt="Estúdio Lumi Lux" data-t-alt="instagram.alt" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="aspect-ratio:1/1;overflow:hidden;box-sizing:border-box;background:#DAD9CE;"><img src="img/hero-lounge.webp" alt="Estúdio Lumi Lux" data-t-alt="instagram.alt" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div style="aspect-ratio:1/1;overflow:hidden;box-sizing:border-box;background:#DAD9CE;"><img src="img/detalhe.webp" alt="Estúdio Lumi Lux" data-t-alt="instagram.alt" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    </div>
+  </div>
+
+  <!-- COMO NOS ENCONTRAR -->
+  <div id="localizacao" style="background:#EDE7DD;padding:120px 0;box-sizing:border-box;">
+    <div style="max-width:960px;margin:0 auto;padding:0 40px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;">
+      <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="localizacao.eyebrow">Localização</span></div>
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="localizacao.title">Como nos encontrar</span></h2>
+    </div>
+
+    <div style="max-width:960px;margin:44px auto 0;padding:0 40px;box-sizing:border-box;">
+      <a href="https://www.google.co.uk/maps/place/Anna+%C3%93PTICA/@38.759725,-9.2367153,17.75z/data=!4m15!1m8!3m7!1s0xd1ecda799876bdf:0x9d3eb9785df72fb7!2sAv.+Cardoso+Lopes+3,+2700-337+Amadora,+Portugal!3b1!8m2!3d38.759829!4d-9.2351816!16s%2Fg%2F11c2fmy939!3m5!1s0xd1ecdf075dfb1b3:0xded42a5d672cf698!8m2!3d38.7598167!4d-9.2353003!16s%2Fg%2F11h032wxzl?entry=ttu&amp;g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="llx-tile" style="aspect-ratio:16/7;width:100%;border:1px solid #DAD9CE;background:#FAFAF6;display:flex;align-items:center;justify-content:center;box-sizing:border-box;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.4"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <div style="font-size:15px;font-weight:500;"><span data-t="localizacao.mapAddress">Av. Cardoso Lopes, 3 — Amadora</span></div>
+          <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6B675F;text-decoration:underline;"><span data-t="localizacao.mapCta">Ver no Google Maps</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div style="max-width:960px;margin:56px auto 0;padding:0 40px;box-sizing:border-box;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;text-align:center;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;"><span data-t="localizacao.addressLabel">Morada</span></div>
+        <div style="font-size:14px;line-height:1.7;color:#6B675F;"><span data-t="localizacao.addressVal1">Av. Cardoso Lopes, 3</span><br><span data-t="localizacao.addressVal2">Amadora, Portugal</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;"><span data-t="localizacao.hoursLabel">Horário</span></div>
+        <div style="font-size:14px;line-height:1.7;color:#6B675F;"><span data-t="localizacao.hoursVal1">Seg – Sex, 09h–20h</span><br><span data-t="localizacao.hoursVal2">Sáb – Dom, 09h–19h</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;"><span data-t="localizacao.trainLabel">Comboio</span></div>
+        <div style="font-size:14px;line-height:1.7;color:#6B675F;"><span data-t="localizacao.trainVal1">Estação da Amadora</span><br><span data-t="localizacao.trainVal2">1–2 min a pé</span></div>
+      </div>
+    </div>
+    <div style="max-width:960px;margin:28px auto 0;padding:0 40px;box-sizing:border-box;text-align:center;">
+      <div style="font-size:13px;line-height:1.6;color:#6B675F;"><span data-t="localizacao.carNote">De carro: estacionamento gratuito nas redondezas, sujeito a disponibilidade — não há lugares reservados.</span></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" style="background:#0F0F0E;color:#FAFAF6;padding:130px 64px;box-sizing:border-box;">
+    <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;">
+      <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(250,250,246,.7);"><span data-t="faq.eyebrow">FAQ</span></div>
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(34px,4.6vw,60px);line-height:.98;letter-spacing:-.035em;"><span data-t="faq.title">Perguntas frequentes</span></h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;font-weight:300;color:rgba(250,250,246,.8);max-width:52ch;"><span data-t="faq.subtitle">Não encontrou o que procurava? Mande uma mensagem — temos todo o gosto em ajudar.</span></p>
+      <a href="mailto:info@lumifocusstudio.com" class="llx-btn-outline-light" style="padding:15px 34px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;"><span data-t="faq.send">Enviar mensagem</span></a>
+    </div>
+
+    <div style="max-width:800px;margin:60px auto 0;border-top:1px solid rgba(250,250,246,.18);">
+      <div id="faqList"><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-0"><span>Posso chegar mais cedo para montar?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-0" hidden>Normalmente é possível reservar tempo extra de montagem — combine o horário no momento da reserva.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-1"><span>Vocês fornecem fundos de papel/colorama?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-1" hidden>Sim — o estúdio tem fundos de papel próprios em branco, bege, cinza e castanho, sem custo extra.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-2"><span>Posso gravar um videoclipe?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-2" hidden>Sim, o espaço é adequado para fotografia e vídeo, incluindo videoclipes e conteúdo para redes sociais.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-3"><span>Há casa de banho?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-3" hidden>Sim, casa de banho moderna dentro do próprio estúdio.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-4"><span>Posso alterar ou cancelar a minha reserva?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-4" hidden>Sim — os prazos e condições de reembolso ou reagendamento estão em Termos &amp; Condições.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-5"><span>Têm Wi-Fi?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-5" hidden>Sim, Wi-Fi de alta velocidade incluído em todas as reservas.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-6"><span>Quais são os dias e horários de funcionamento?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-6" hidden>Segunda a sexta, 09h–20h; sábado e domingo, 09h–19h — sempre por agendamento.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-7"><span>Podemos levar álcool para o estúdio?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-7" hidden>Não é permitido o consumo de álcool no espaço — mais detalhes em Termos &amp; Condições.</p></div><div class="llx-faq-item"><button type="button" class="llx-faq-q" aria-expanded="false" aria-controls="faq-a-8"><span>Têm estacionamento?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></button><p class="llx-faq-a" id="faq-a-8" hidden>Não temos lugares reservados, mas há estacionamento gratuito nas redondezas, sujeito a disponibilidade.</p></div></div>
+    </div>
+  </div>
+
+  <!-- CTA RESERVA -->
+  <div id="reservar" style="background:#EDE7DD;padding:130px 40px;box-sizing:border-box;">
+    <div style="max-width:660px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(32px,4.4vw,58px);line-height:.98;letter-spacing:-.035em;"><span data-t="reservar.title">Reserve o seu horário</span></h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#6B675F;max-width:48ch;"><span data-t="reservar.subtitle">Escolha a duração e o dia. O pedido segue por WhatsApp já preenchido e confirmamos a disponibilidade.</span></p>
+    </div>
+
+    <div style="max-width:660px;margin:44px auto 0;background:#FAFAF6;border:1px solid #DAD9CE;padding:40px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px;">
+
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;">
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fDuration">Duração</span></span>
+          <select id="llx-dur" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
+              <option value="1|30" data-t="reservar.d1">1 hora — 30 €</option>
+              <option value="2|50" data-t="reservar.d2">2 horas — 50 €</option>
+              <option value="3|70" data-t="reservar.d3">3 horas — 70 €</option>
+              <option value="4|90" data-t="reservar.d4">4 horas — 90 €</option>
+              <option value="5|115" data-t="reservar.d5">5 horas — 115 €</option>
+              <option value="6|140" data-t="reservar.d6">6 horas — 140 €</option>
+              <option value="dia|200" data-t="reservar.d7">Dia inteiro — 200 €</option>
+            </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fType">Tipo de sessão</span></span>
+          <select id="llx-type" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
+              <option value="moda" data-t="reservar.k1">Moda &amp; E-commerce</option>
+              <option value="natal" data-t="reservar.k6">Natal e fim de ano</option>
+              <option value="retrato" data-t="reservar.k2">Retrato &amp; Headshot</option>
+              <option value="beleza" data-t="reservar.k3">Beleza &amp; Still</option>
+              <option value="video" data-t="reservar.k4">Vídeo</option>
+              <option value="outro" data-t="reservar.k5">Outro</option>
+            </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fDate">Dia</span></span>
+          <input id="llx-date" type="date" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fTime">Hora de início</span></span>
+          <input id="llx-time" type="time" step="1800" value="10:00" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
+        </label>
+      </div>
+
+      <label style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fName">O seu nome</span></span>
+        <input id="llx-name" type="text" autocomplete="name" placeholder="Como se chama?" data-t-placeholder="reservar.phName" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fNotes">Notas (opcional)</span></span>
+        <input id="llx-notes" type="text" placeholder="Equipa, cenário, equipamento extra…" data-t-placeholder="reservar.phNotes" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
+      </label>
+
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:18px;border-top:1px solid #DAD9CE;">
+        <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.total">Total</span></span>
+        <span id="llx-total" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:34px;letter-spacing:-.035em;">30 €</span>
+      </div>
+
+      <a id="llx-wa" href="https://wa.me/447846229918" target="_blank" rel="noopener" class="llx-btn-dark" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:19px 32px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;text-align:center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.6 9.1c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5l.7 1.6c.1.2 0 .4-.1.5l-.4.5c-.1.2-.2.3 0 .6a6 6 0 0 0 2.7 2.3c.3.1.4 0 .6-.1l.5-.6c.2-.2.3-.1.5 0l1.5.8c.3.2.3.3.3.5a1.8 1.8 0 0 1-1.7 1.6c-.7 0-2.8-.5-4.6-2.4a8.4 8.4 0 0 1-2.2-3.7c-.1-.9.1-1.4.4-1.6Z"/></svg>
+        <span><span data-t="reservar.send">Enviar pedido por WhatsApp</span></span>
+      </a>
+
+      <p style="margin:0;font-size:13px;line-height:1.7;color:#6B675F;text-align:center;"><span data-t="reservar.note">A reserva só fica confirmada depois da nossa resposta. Todas as reservas incluem 15 a 30 minutos extra para arrumar o espaço antes de sair.</span></p>
+
+    </div>
+  </div>
+
+  <!-- TERMOS -->
+  <div id="termos" style="padding:120px 0;box-sizing:border-box;">
+    <div style="max-width:800px;margin:0 auto;padding:0 40px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px;">
+      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="termos.title">Termos &amp; Condições</span></h2>
+
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <h3 style="margin:0;font-size:18px;font-weight:500;"><span data-t="termos.refundsTitle">Reembolsos &amp; Cancelamentos</span></h3>
+        <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:14px;color:#6B675F;font-size:15px;line-height:1.65;">
+          <li><span data-t="termos.r1">Aviso com 7 dias de antecedência — reembolso de 100%</span></li>
+          <li><span data-t="termos.r2">Entre 7 dias e 48h antes da sessão — reembolso de 50% ou reagendamento gratuito</span></li>
+          <li><span data-t="termos.r3">Entre 48h e 24h antes da sessão — reagendamento com taxa de 50%</span></li>
+          <li><span data-t="termos.r4">Menos de 24h antes da sessão — sem reembolso nem reagendamento</span></li>
+        </ul>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <h3 style="margin:0;font-size:18px;font-weight:500;"><span data-t="termos.bringTitle">O que pode trazer para o estúdio</span></h3>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#6B675F;"><span data-t="termos.bringBody">Não é permitido trazer areia, argila, tinta ou terra para o estúdio, para proteger o piso e os fundos. O uso destes materiais sem aviso prévio pode resultar no fim da sessão e/ou numa taxa de limpeza. Não é permitido o consumo de álcool no espaço.</span></p>
+      </div>
+
+      <p style="margin:0;font-size:13px;color:#6B675F;"><span data-t="termos.note">Termos de referência — ajuste conforme a sua política antes de publicar.</span></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div id="contato" style="background:#0F0F0E;color:#FAFAF6;padding:80px 40px 34px;box-sizing:border-box;">
+    <div style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-bottom:44px;border-bottom:1px solid rgba(250,250,246,.18);">
+
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.03em;">Lumi Lux</span>
+          <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(250,250,246,.7);">Creative Studio</span>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.65;color:rgba(250,250,246,.7);max-width:26ch;"><span data-t="footer.tagline">Espaço aberto de 114 m² para fotografia e produções audiovisuais, na Amadora.</span></p>
+        <div style="display:flex;gap:16px;padding-top:4px;">
+          <a href="https://www.instagram.com/lumifocus_/" target="_blank" rel="noopener" class="llx-social" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,246,.6);margin-bottom:6px;"><span data-t="footer.addressLabel">Endereço</span></div>
+        <div style="font-size:14px;line-height:1.7;"><span data-t="footer.addressVal1">Av. Cardoso Lopes, 3</span><br><span data-t="footer.addressVal2">Amadora, Portugal</span></div>
+        <div style="font-size:13px;color:rgba(250,250,246,.6);"><span data-t="footer.addressNote">1–2 min a pé da Estação da Amadora</span></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,246,.6);margin-bottom:6px;"><span data-t="footer.contactLabel">Contato</span></div>
+        <a href="mailto:info@lumifocusstudio.com" class="llx-nav-link" style="font-size:14px;">info@lumifocusstudio.com</a>
+        <a href="https://wa.me/447846229918" target="_blank" rel="noopener" class="llx-nav-link" style="font-size:14px;">+44 7846 229918 (WhatsApp)</a>
+        <a href="https://www.instagram.com/lumifocus_/" target="_blank" rel="noopener" class="llx-nav-link" style="font-size:14px;">@lumifocus_</a>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,246,.6);margin-bottom:6px;"><span data-t="footer.hoursLabel">Horário</span></div>
+        <div style="font-size:14px;line-height:1.8;color:rgba(250,250,246,.88);"><span data-t="footer.hoursVal">Seg – Sex 09h–20h</span><br><span data-t="footer.hoursVal2">Sáb – Dom 09h–19h</span></div>
+        <div style="font-size:13px;color:rgba(250,250,246,.6);"><span data-t="footer.hoursNote">Apenas com agendamento confirmado</span></div>
+      </div>
+
+    </div>
+    <div style="max-width:1400px;margin:0 auto;padding-top:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:rgba(250,250,246,.6);"><span data-t="footer.copyright">© 2026 Lumi Lux — Creative Studio</span></div>
+      <div style="display:flex;gap:24px;">
+        <a href="#termos" class="llx-nav-link" style="font-size:12px;letter-spacing:.05em;color:rgba(250,250,246,.75);"><span data-t="footer.terms">Termos</span></a>
+        <a href="#faq" class="llx-nav-link" style="font-size:12px;letter-spacing:.05em;color:rgba(250,250,246,.75);"><span data-t="footer.faqLink">FAQ</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const TRANSLATIONS = {
+  pt: {
+    nav: { about: 'Sobre', space: 'Espaço', services: 'Serviços', prices: 'Preços', contact: 'Contato', book: 'Reservar', igLabel: 'Instagram do Lumi Lux — abre em nova janela', igCta: 'Ver no Instagram' },
+    hero: { eyebrow: 'Creative Studio', title: 'UM ESPAÇO PARA A TUA CRIATIVIDADE.', subtitle: 'Aluga o nosso estúdio de fotografia e vídeo na Amadora e dá vida às tuas ideias. Para fotógrafos, videomakers e criadores de conteúdo que procuram um espaço versátil para as suas produções.', book: 'Reservar estúdio', viewSpace: 'Explorar o espaço', scroll: 'Descer' },
+    quickFacts: { area: '114 m²', areaLabel: 'área livre', open: 'Aberto', openLabel: 'sem divisórias', days: '7 dias', daysLabel: 'por semana, com agendamento', price: '30 €', priceLabel: 'a partir de / hora' },
+    sobre: { title: 'Lumi Lux', p1: 'O Lumi Lux é um estúdio de fotografia e vídeo na Amadora, a dois minutos a pé da estação e a poucos minutos do centro de Lisboa.', p2: 'São 114 m² de planta aberta, sem divisórias, com iluminação profissional permanentemente montada. Por ser um espaço em cave, a luz é inteiramente controlada — o resultado é o mesmo às nove da manhã ou às oito da noite, faça sol ou faça chuva.', p3: 'O estúdio funciona por marcação, sete dias por semana, com check-in autónomo. A reserva dá acesso ao espaço e a todo o equipamento, sem custos adicionais.' },
+    espaco: { eyebrow: 'O espaço', title: '114 m² abertos, sem paredes no meio do caminho.', body: 'Um único galpão, sem divisórias internas — você organiza cenário, luz e equipe do jeito que o trabalho pedir, sem trocar de sala.', area: 'Área', areaVal: '114 m²', ceiling: 'Pé-direito', ceilingVal: '[X m]', divisions: 'Divisórias', divisionsVal: 'Nenhuma — planta livre', location: 'Localização', locationVal: '1–2 min a pé da Estação da Amadora', light: 'Luz', lightVal: '100% montada — espaço em cave, sem luz natural', priceSuffix: '/hora', book: 'Reservar', photoAlt: 'Área principal do estúdio, aberta, com fundo infinito e iluminação montada' },
+    servicos: { eyebrow: 'Serviços', title: 'Para o que você pode usar o Lumi Lux.', c1t: 'Moda & E-commerce', c1b: 'Fotografe seu catálogo com fundo neutro e luz consistente, sem trocar de local.', c1alt: 'Fundos e cenários disponíveis no estúdio', c2t: 'Retrato & Headshot', c2b: 'Sessões individuais ou para equipes inteiras, no mesmo espaço e no mesmo dia.', c2alt1: 'Editorial de moda a preto e branco, vestido de jornal, fotografado no estúdio', c2alt2: 'Retrato de beleza com luz quente e argolas douradas, fotografado no estúdio', slide1: 'Ver primeira fotografia', slide2: 'Ver segunda fotografia', c3t: 'Beleza & Still', c3b: 'Setups delicados para still life, produtos e still de beleza.', c3alt: 'Cantinho de maquiagem com espelho iluminado' },
+    estrutura: { eyebrow: 'Estrutura', title: 'O que já está incluso na reserva.', i1t: 'Iluminação profissional', i1b: 'Flashes, softboxes e refletores prontos para uso, sem custo extra.', i2t: 'Wi-Fi de alta velocidade', i2b: 'Conexão estável para transferência e envio de arquivos no local.', i3t: 'Estacionamento gratuito', i3b: 'Estacionamento gratuito nas redondezas, sujeito a disponibilidade — não há lugares reservados.', i4t: 'Climatização', i4b: 'Ambiente climatizado para o conforto da equipe e do modelo.', i5t: 'Camarim para vestir', i5b: 'Espaço reservado para troca de roupa e retoques de produção.', i6t: 'Check-in autónomo', i6b: 'Como num Airbnb: chave do prédio num cofre na entrada e fechadura inteligente na porta do estúdio — acesso no horário reservado, sem espera.', i7t: 'Casa de banho moderna', i7b: 'Casa de banho própria, dentro do estúdio.', i8t: 'Coluna Bluetooth', i8b: 'Música própria durante a sessão, ligada por Bluetooth.' },
+    equipamento: { eyebrow: 'O que está incluído', title: 'Equipamento e produção, sem custo extra.', col1: 'Equipamento fotográfico', e1: 'Godox SK300II', e2: 'Godox SK400III', e3: 'Godox SL60W', e4: 'Godox MS300', e5: '2× softbox 30×120 com grid', e6: 'Octabox 60 e 90', e7: 'C-stand', e8: 'Refletores', col2: 'Cenários e produção', e9: 'Fundos de papel — branco, bege, cinza e castanho', e10: 'Mesa de maquiagem', e11: 'Poltrona, bancos e cadeira', e12: 'Espelho de corpo inteiro', e13: 'Gimbal para telemóvel', note: 'Softbox extra disponível mediante recomendação da equipe. Precisa de outro equipamento específico? Fale connosco antes da reserva.' },
+    precos: { eyebrow: 'Preços', title: 'Quanto mais tempo você reserva, menor o valor por hora.', listH: 'Escolha a duração', payT: 'Pagamento', pay1: 'MB WAY', pay2: 'Transferência (IBAN)', pay3: 'Revolut', payNote: 'Os dados de pagamento são enviados na confirmação da reserva.', extraT: 'Tempo extra incluído', extraB: 'Todas as reservas incluem 15 a 30 minutos além do tempo contratado, para arrumar e deixar o espaço limpo antes de sair. O código da fechadura inteligente cobre esse período.', h1: '1 hora', h2: '2 horas', h3: '3 horas', h4: '4 horas', h5: '5 horas', h6: '6 horas', fullDay: 'Dia inteiro', fullDayBody: 'Para produções, campanhas e gravações mais longas.', book: 'Reservar', note: 'Reserva feita e paga por agendamento. Todos os valores incluem os itens listados em Estrutura.' },
+    depoimentos: { eyebrow: 'Depoimentos', title: 'Quem já gravou aqui.', quote: '[Depoimento do cliente sobre a experiência no estúdio.]', n1: '[Nome do cliente] · [Fotógrafo(a)]', n2: '[Nome do cliente] · [Marca / Empresa]', n3: '[Nome do cliente] · [Criador(a) de conteúdo]' },
+    instagram: { eyebrow: 'Instagram', follow: 'Seguir no Instagram', alt: 'Estúdio Lumi Lux' },
+    localizacao: { eyebrow: 'Localização', title: 'Como nos encontrar', mapAddress: 'Av. Cardoso Lopes, 3 — Amadora', mapCta: 'Ver no Google Maps', addressLabel: 'Morada', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', hoursLabel: 'Horário', hoursVal1: 'Seg – Sex, 09h–20h', hoursVal2: 'Sáb – Dom, 09h–19h', trainLabel: 'Comboio', trainVal1: 'Estação da Amadora', trainVal2: '1–2 min a pé', carNote: 'De carro: estacionamento gratuito nas redondezas, sujeito a disponibilidade — não há lugares reservados.' },
+    faq: {
+      eyebrow: 'FAQ', title: 'Perguntas frequentes', subtitle: 'Não encontrou o que procurava? Mande uma mensagem — temos todo o gosto em ajudar.', send: 'Enviar mensagem',
+      items: [
+        { q: 'Posso chegar mais cedo para montar?', a: 'Normalmente é possível reservar tempo extra de montagem — combine o horário no momento da reserva.' },
+        { q: 'Vocês fornecem fundos de papel/colorama?', a: 'Sim — o estúdio tem fundos de papel próprios em branco, bege, cinza e castanho, sem custo extra.' },
+        { q: 'Posso gravar um videoclipe?', a: 'Sim, o espaço é adequado para fotografia e vídeo, incluindo videoclipes e conteúdo para redes sociais.' },
+        { q: 'Há casa de banho?', a: 'Sim, casa de banho moderna dentro do próprio estúdio.' },
+        { q: 'Posso alterar ou cancelar a minha reserva?', a: 'Sim — os prazos e condições de reembolso ou reagendamento estão em Termos & Condições.' },
+        { q: 'Têm Wi-Fi?', a: 'Sim, Wi-Fi de alta velocidade incluído em todas as reservas.' },
+        { q: 'Quais são os dias e horários de funcionamento?', a: 'Segunda a sexta, 09h–20h; sábado e domingo, 09h–19h — sempre por agendamento.' },
+        { q: 'Podemos levar álcool para o estúdio?', a: 'Não é permitido o consumo de álcool no espaço — mais detalhes em Termos & Condições.' },
+        { q: 'Têm estacionamento?', a: 'Não temos lugares reservados, mas há estacionamento gratuito nas redondezas, sujeito a disponibilidade.' }
+      ]
+    },
+    reservar: { title: 'Reserve o seu horário', subtitle: 'Escolha a duração e o dia. O pedido segue por WhatsApp já preenchido e confirmamos a disponibilidade.', fDuration: 'Duração', fType: 'Tipo de sessão', fDate: 'Dia', fTime: 'Hora de início', fName: 'O seu nome', fNotes: 'Notas (opcional)', phName: 'Como se chama?', phNotes: 'Equipa, cenário, equipamento extra…', d1: '1 hora — 30 €', d2: '2 horas — 50 €', d3: '3 horas — 70 €', d4: '4 horas — 90 €', d5: '5 horas — 115 €', d6: '6 horas — 140 €', d7: 'Dia inteiro — 200 €', k1: 'Moda & E-commerce', k2: 'Retrato & Headshot', k3: 'Beleza & Still', k4: 'Vídeo', k5: 'Outro', k6: 'Natal e fim de ano', total: 'Total', send: 'Enviar pedido por WhatsApp', msgIntro: 'Olá! Gostaria de reservar o estúdio Lumi Lux.', mName: 'Nome', mDate: 'Dia', mTime: 'Início', mDur: 'Duração', mType: 'Sessão', mTotal: 'Total', mNotes: 'Notas', note: 'A reserva só fica confirmada depois da nossa resposta. Todas as reservas incluem 15 a 30 minutos extra para arrumar o espaço antes de sair.' },
+    termos: { title: 'Termos & Condições', refundsTitle: 'Reembolsos & Cancelamentos', r1: 'Aviso com 7 dias de antecedência — reembolso de 100%', r2: 'Entre 7 dias e 48h antes da sessão — reembolso de 50% ou reagendamento gratuito', r3: 'Entre 48h e 24h antes da sessão — reagendamento com taxa de 50%', r4: 'Menos de 24h antes da sessão — sem reembolso nem reagendamento', bringTitle: 'O que pode trazer para o estúdio', bringBody: 'Não é permitido trazer areia, argila, tinta ou terra para o estúdio, para proteger o piso e os fundos. O uso destes materiais sem aviso prévio pode resultar no fim da sessão e/ou numa taxa de limpeza. Não é permitido o consumo de álcool no espaço.', note: 'Termos de referência — ajuste conforme a sua política antes de publicar.' },
+    footer: { tagline: 'Espaço aberto de 114 m² para fotografia e produções audiovisuais, na Amadora.', addressLabel: 'Endereço', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', addressNote: '1–2 min a pé da Estação da Amadora', contactLabel: 'Contato', hoursLabel: 'Horário', hoursVal: 'Seg – Sex 09h–20h', hoursVal2: 'Sáb – Dom 09h–19h', hoursNote: 'Apenas com agendamento confirmado', copyright: '© 2026 Lumi Lux — Creative Studio', terms: 'Termos', faqLink: 'FAQ' }
+  },
+  en: {
+    nav: { about: 'About', space: 'Space', services: 'Services', prices: 'Pricing', contact: 'Contact', book: 'Book', igLabel: 'Lumi Lux on Instagram — opens in a new window', igCta: 'See on Instagram' },
+    hero: { eyebrow: 'Creative Studio', title: 'A SPACE FOR YOUR CREATIVITY.', subtitle: 'Rent our photography and video studio in Amadora and bring your ideas to life. For photographers, videomakers and content creators looking for a versatile space for their productions.', book: 'Book the studio', viewSpace: 'Explore the space', scroll: 'Scroll' },
+    quickFacts: { area: '114 m²', areaLabel: 'open floor area', open: 'Open plan', openLabel: 'no partitions', days: '7 days', daysLabel: 'a week, by appointment', price: '€30', priceLabel: 'starting price / hour' },
+    sobre: { title: 'Lumi Lux', p1: 'Lumi Lux is a photography and video studio in Amadora, a two-minute walk from the station and a short ride from central Lisbon.', p2: 'It is 114 m² of open floor with no partitions, and professional lighting permanently rigged. Because the space sits below ground, the light is entirely under your control — the result is the same at nine in the morning or eight at night, rain or shine.', p3: 'The studio runs by appointment, seven days a week, with self check-in. Your booking covers the space and all of the equipment, at no extra cost.' },
+    espaco: { eyebrow: 'The space', title: '114 m² wide open, with nothing in the way.', body: 'One single open room, with no internal walls — set up backdrop, lighting and crew however the job needs, without ever changing rooms.', area: 'Area', areaVal: '114 m²', ceiling: 'Ceiling height', ceilingVal: '[X m]', divisions: 'Partitions', divisionsVal: 'None — open floor plan', location: 'Location', locationVal: '1–2 min walk from Amadora station', light: 'Lighting', lightVal: '100% studio lighting — basement space, no natural light', priceSuffix: '/hour', book: 'Book now', photoAlt: 'Main studio area, open, with seamless backdrop and lighting set up' },
+    servicos: { eyebrow: 'Services', title: 'What you can use Lumi Lux for.', c1t: 'Fashion & E-commerce', c1b: 'Shoot your catalogue against a neutral backdrop with consistent light, without changing location.', c1alt: 'Backdrops and sets available in the studio', c2t: 'Portrait & Headshot', c2b: 'Individual sessions or whole teams, in the same space, on the same day.', c2alt1: 'Black and white fashion editorial, newspaper gown, shot in the studio', c2alt2: 'Beauty portrait with warm light and gold hoops, shot in the studio', slide1: 'Show first photo', slide2: 'Show second photo', c3t: 'Beauty & Still Life', c3b: 'Delicate setups for still life, product and beauty still shoots.', c3alt: 'Makeup corner with lit mirror' },
+    estrutura: { eyebrow: 'Amenities', title: "What's already included in your booking.", i1t: 'Professional lighting', i1b: 'Strobes, softboxes and reflectors ready to use, at no extra cost.', i2t: 'High-speed Wi-Fi', i2b: 'A stable connection for transferring and sending files on site.', i3t: 'Free parking', i3b: 'Free parking nearby, subject to availability — there are no reserved spaces.', i4t: 'Climate control', i4b: 'A comfortable, climate-controlled environment for crew and talent.', i5t: 'Changing room', i5b: 'A dedicated space to change clothes and touch up between shots.', i6t: 'Self check-in', i6b: 'Like an Airbnb: the building key sits in a lockbox at the entrance, and the studio door has a smart lock — access right at your booked time, no waiting.', i7t: 'Modern bathroom', i7b: 'A private bathroom inside the studio itself.', i8t: 'Bluetooth speaker', i8b: 'Play your own music during the session, connected over Bluetooth.' },
+    equipamento: { eyebrow: "What's included", title: 'Equipment and production gear, at no extra cost.', col1: 'Photography equipment', e1: 'Godox SK300II', e2: 'Godox SK400III', e3: 'Godox SL60W', e4: 'Godox MS300', e5: '2× 30×120 softbox with grid', e6: '60 cm and 90 cm octabox', e7: 'C-stand', e8: 'Reflectors', col2: 'Sets and production', e9: 'Paper backdrops — white, beige, grey and brown', e10: 'Makeup table', e11: 'Armchair, stools and chair', e12: 'Full-length mirror', e13: 'Phone gimbal', note: 'An extra softbox is available when recommended by the team. Need any other specific gear? Get in touch before booking.' },
+    precos: { eyebrow: 'Pricing', title: 'The longer you book, the lower the hourly rate.', listH: 'Choose booking length', payT: 'Payment', pay1: 'MB WAY', pay2: 'Bank transfer (IBAN)', pay3: 'Revolut', payNote: 'Payment details are sent with your booking confirmation.', extraT: 'Extra time included', extraB: 'Every booking includes 15 to 30 minutes on top of the time you pay for, to tidy up and leave the space clean. The smart lock code covers that period.', h1: '1 hour', h2: '2 hours', h3: '3 hours', h4: '4 hours', h5: '5 hours', h6: '6 hours', fullDay: 'Full day', fullDayBody: 'For productions, campaigns and longer shoots.', book: 'Book now', note: 'Booked and paid by appointment. All prices include the items listed under Amenities.' },
+    depoimentos: { eyebrow: 'Testimonials', title: "People who've shot here.", quote: '[Client testimonial about their experience at the studio.]', n1: '[Client name] · [Photographer]', n2: '[Client name] · [Brand / Company]', n3: '[Client name] · [Content creator]' },
+    instagram: { eyebrow: 'Instagram', follow: 'Follow on Instagram', alt: 'Lumi Lux studio' },
+    localizacao: { eyebrow: 'Location', title: 'How to find us', mapAddress: 'Av. Cardoso Lopes, 3 — Amadora', mapCta: 'View on Google Maps', addressLabel: 'Address', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', hoursLabel: 'Hours', hoursVal1: 'Mon – Fri, 9am–8pm', hoursVal2: 'Sat – Sun, 9am–7pm', trainLabel: 'Train', trainVal1: 'Amadora station', trainVal2: '1–2 min walk', carNote: 'By car: free parking nearby, subject to availability — there are no reserved spaces.' },
+    faq: {
+      eyebrow: 'FAQ', title: 'Frequently asked questions', subtitle: "Can't find what you're looking for? Send us a message — we're happy to help.", send: 'Send a message',
+      items: [
+        { q: 'Can I arrive early to set up?', a: "It's usually possible to book extra set-up time — just arrange it when you book." },
+        { q: 'Do you provide paper backdrops/coloramas?', a: 'Yes — the studio has its own paper backdrops in white, beige, grey and brown, at no extra cost.' },
+        { q: 'Can I shoot a music video?', a: 'Yes, the space is suitable for photography and video, including music videos and social media content.' },
+        { q: 'Is there a bathroom?', a: 'Yes, a modern bathroom inside the studio itself.' },
+        { q: 'Can I change or cancel my booking?', a: 'Yes — the refund and rescheduling terms are listed under Terms & Conditions.' },
+        { q: 'Do you have Wi-Fi?', a: 'Yes, high-speed Wi-Fi is included with every booking.' },
+        { q: 'What days/times are you open?', a: 'Monday to Friday, 9am–8pm; Saturday and Sunday, 9am–7pm — always by appointment.' },
+        { q: 'Can we bring alcohol to the studio?', a: 'Alcohol is not permitted in the space — see Terms & Conditions for details.' },
+        { q: 'Do you have parking?', a: "We don't have reserved spaces, but there is free parking nearby, subject to availability." }
+      ]
+    },
+    reservar: { title: 'Book your session', subtitle: 'Pick a length and a day. Your request goes out over WhatsApp already filled in, and we confirm availability.', fDuration: 'Length', fType: 'Type of shoot', fDate: 'Day', fTime: 'Start time', fName: 'Your name', fNotes: 'Notes (optional)', phName: "What's your name?", phNotes: 'Crew, set, extra equipment…', d1: '1 hour — €30', d2: '2 hours — €50', d3: '3 hours — €70', d4: '4 hours — €90', d5: '5 hours — €115', d6: '6 hours — €140', d7: 'Full day — €200', k1: 'Fashion & E-commerce', k2: 'Portrait & Headshot', k3: 'Beauty & Still Life', k4: 'Video', k5: 'Other', k6: 'Christmas & New Year', total: 'Total', send: 'Send request on WhatsApp', msgIntro: 'Hi! I would like to book the Lumi Lux studio.', mName: 'Name', mDate: 'Day', mTime: 'Start', mDur: 'Length', mType: 'Shoot', mTotal: 'Total', mNotes: 'Notes', note: 'Your booking is only confirmed once we reply. Every booking includes 15 to 30 extra minutes to tidy the space before leaving.' },
+    termos: { title: 'Terms & Conditions', refundsTitle: 'Refunds & Cancellations', r1: '7 days notice or more — 100% refund', r2: 'Between 7 days and 48h before the session — 50% refund or free reschedule', r3: 'Between 48h and 24h before the session — reschedule with a 50% fee', r4: 'Less than 24h before the session — no refund or reschedule', bringTitle: 'What you can bring to the studio', bringBody: 'Sand, clay, paint or soil are not allowed in the studio, to protect the floor and backdrops. Using these materials without prior notice may result in the session being ended and/or a cleaning fee. Alcohol is not permitted in the space.', note: 'Reference terms — adjust to your own policy before publishing.' },
+    footer: { tagline: 'An open 114 m² space for photography and audiovisual production, in Amadora.', addressLabel: 'Address', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', addressNote: '1–2 min walk from Amadora station', contactLabel: 'Contact', hoursLabel: 'Hours', hoursVal: 'Mon – Fri 9am–8pm', hoursVal2: 'Sat – Sun 9am–7pm', hoursNote: 'By confirmed appointment only', copyright: '© 2026 Lumi Lux — Creative Studio', terms: 'Terms', faqLink: 'FAQ' }
+  }
+};
+
+(function () {
+  var lang = 'pt';
+
+  function get(dict, path) {
+    return path.split('.').reduce(function (o, k) { return (o == null) ? null : o[k]; }, dict);
+  }
+
+  function buildFaq(d) {
+    var list = document.getElementById('faqList');
+    if (!list) return;
+    list.innerHTML = '';
+    d.faq.items.forEach(function (f, i) {
+      var item = document.createElement('div');
+      item.className = 'llx-faq-item';
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'llx-faq-q';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', 'faq-a-' + i);
+      btn.innerHTML = '<span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" '
+        + 'stroke="#FAFAF6" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg>';
+      btn.firstChild.textContent = f.q;
+
+      var ans = document.createElement('p');
+      ans.className = 'llx-faq-a';
+      ans.id = 'faq-a-' + i;
+      ans.textContent = f.a;
+      ans.hidden = true;
+
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        list.querySelectorAll('.llx-faq-q').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+        list.querySelectorAll('.llx-faq-a').forEach(function (p) { p.hidden = true; });
+        if (!open) { btn.setAttribute('aria-expanded', 'true'); ans.hidden = false; }
+      });
+
+      item.appendChild(btn);
+      item.appendChild(ans);
+      list.appendChild(item);
+    });
+  }
+
+  function apply(l) {
+    lang = (l === 'en') ? 'en' : 'pt';
+    var d = TRANSLATIONS[lang];
+
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var v = get(d, el.getAttribute('data-t'));
+      if (typeof v === 'string') el.textContent = v;
+    });
+    ['alt', 'aria-label', 'title'].forEach(function (a) {
+      document.querySelectorAll('[data-t-' + a + ']').forEach(function (el) {
+        var v = get(d, el.getAttribute('data-t-' + a));
+        if (typeof v === 'string') el.setAttribute(a, v);
+      });
+    });
+
+    buildFaq(d);
+    // o formulario de reserva depende dos textos: refaz a mensagem na lingua certa
+    if (typeof window.llxRefreshBooking === 'function') window.llxRefreshBooking();
+
+    document.getElementById('langPt').setAttribute('aria-pressed', String(lang === 'pt'));
+    document.getElementById('langEn').setAttribute('aria-pressed', String(lang === 'en'));
+    document.documentElement.lang = (lang === 'pt') ? 'pt-PT' : 'en';
+    try { localStorage.setItem('llx-lang', lang); } catch (e) {}
+  }
+
+  // ---- formulario de reserva: total + mensagem de WhatsApp ----
+  (function () {
+    var WA = '447846229918';
+    var dur = document.getElementById('llx-dur');
+    var typ = document.getElementById('llx-type');
+    var dia = document.getElementById('llx-date');
+    var hora = document.getElementById('llx-time');
+    var nome = document.getElementById('llx-name');
+    var notas = document.getElementById('llx-notes');
+    var total = document.getElementById('llx-total');
+    var wa = document.getElementById('llx-wa');
+    if (!dur || !wa) return;
+
+    // nao deixa escolher um dia que ja passou
+    var hoje = new Date();
+    var iso = hoje.getFullYear() + '-' + String(hoje.getMonth()+1).padStart(2,'0')
+            + '-' + String(hoje.getDate()).padStart(2,'0');
+    if (dia) { dia.min = iso; if (!dia.value) dia.value = iso; }
+
+    function preco() { return (dur.value || '1|30').split('|')[1]; }
+
+    // em portugues escreve-se "70 €", em ingles "€70"
+    function euros() {
+      var v = preco();
+      return (lang === 'en') ? '\u20AC' + v : v + ' \u20AC';
+    }
+
+    function diaLegivel() {
+      if (!dia || !dia.value) return '';
+      var p = dia.value.split('-');
+      return p[2] + '/' + p[1] + '/' + p[0];
+    }
+
+    function refresh() {
+      var d = TRANSLATIONS[lang];
+      total.textContent = euros();
+
+      var linhas = [d.reservar.msgIntro, ''];
+      if (nome && nome.value.trim()) linhas.push(d.reservar.mName + ': ' + nome.value.trim());
+      if (diaLegivel())             linhas.push(d.reservar.mDate + ': ' + diaLegivel());
+      if (hora && hora.value)       linhas.push(d.reservar.mTime + ': ' + hora.value);
+      linhas.push(d.reservar.mDur + ': ' + dur.options[dur.selectedIndex].text);
+      if (typ) linhas.push(d.reservar.mType + ': ' + typ.options[typ.selectedIndex].text);
+      linhas.push(d.reservar.mTotal + ': ' + euros());
+      if (notas && notas.value.trim()) linhas.push('', d.reservar.mNotes + ': ' + notas.value.trim());
+
+      wa.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(linhas.join('\n'));
+    }
+
+    [dur, typ, dia, hora, nome, notas].forEach(function (el) {
+      if (!el) return;
+      el.addEventListener('change', refresh);
+      el.addEventListener('input', refresh);
+    });
+    window.llxRefreshBooking = refresh;   // chamado tambem ao trocar de idioma
+    refresh();
+  })();
+
+  // ---- o atalho flutuante do Instagram nao pode tapar o botao de reservar ----
+  (function () {
+    var fab = document.querySelector('.llx-ig-float');
+    var form = document.getElementById('reservar');
+    if (!fab || !form || !('IntersectionObserver' in window)) return;
+    fab.style.transition = (fab.style.transition ? fab.style.transition + ',' : '')
+      + 'opacity .25s ease,visibility .25s ease';
+    new IntersectionObserver(function (entries) {
+      var dentro = entries[0].isIntersecting;
+      fab.style.opacity = dentro ? '0' : '1';
+      fab.style.visibility = dentro ? 'hidden' : 'visible';
+      fab.setAttribute('aria-hidden', dentro ? 'true' : 'false');
+      fab.tabIndex = dentro ? -1 : 0;
+    }, { threshold: 0.12 }).observe(form);
+  })();
+
+  // ---- carrossel do cartao Retrato & Headshot ----
+  (function () {
+    var box = document.querySelector('.llx-slider');
+    if (!box) return;
+    var imgs = box.querySelectorAll('img');
+    var dots = box.querySelectorAll('.llx-dot');
+    if (!imgs.length) return;
+
+    var i = 0, timer = null;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(n) {
+      i = (n + imgs.length) % imgs.length;
+      imgs.forEach(function (im, k) { im.classList.toggle('is-on', k === i); });
+      dots.forEach(function (d, k) { d.setAttribute('aria-pressed', String(k === i)); });
+    }
+    function start() { if (!still && !timer) timer = setInterval(function () { show(i + 1); }, 4500); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () { stop(); show(+d.dataset.slide); });
+    });
+    // parar enquanto o visitante está a olhar de perto, e quando o separador fica em segundo plano
+    box.addEventListener('mouseenter', stop);
+    box.addEventListener('mouseleave', start);
+    box.addEventListener('focusin', stop);
+    box.addEventListener('focusout', start);
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+
+    show(0);
+    start();
+  })();
+
+  document.getElementById('langPt').addEventListener('click', function () { apply('pt'); });
+  document.getElementById('langEn').addEventListener('click', function () { apply('en'); });
+
+  // Abre sempre em português; só muda se o visitante tiver escolhido inglês antes.
+  var saved = null;
+  try { saved = localStorage.getItem('llx-lang'); } catch (e) {}
+  apply(saved === 'en' ? 'en' : 'pt');
+})();
+</script>
+</body>
+</html>
