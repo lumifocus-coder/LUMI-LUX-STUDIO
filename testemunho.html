@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deixe o seu depoimento — Lumi Lux Creative Studio</title>
+<meta name="description" content="Conte-nos como correu a sua sessão no estúdio Lumi Lux, na Amadora.">
+<meta name="theme-color" content="#0F0F0E">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:#0F0F0E;color:#FAFAF6;font-family:'Jost',sans-serif;font-weight:300;
+       min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 20px 64px;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid #F5C87A;outline-offset:3px;}
+
+  .wrap{width:100%;max-width:560px;}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:46px;}
+  .logo{height:50px;width:auto;display:block;}
+  .langs{display:flex;gap:4px;border:1px solid rgba(250,250,246,.26);border-radius:999px;padding:3px;}
+  .lang{background:transparent;border:none;border-radius:999px;padding:7px 13px;cursor:pointer;
+        font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.1em;color:rgba(250,250,246,.72);}
+  .lang[aria-pressed="true"]{background:#FAFAF6;color:#0F0F0E;}
+
+  .eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(250,250,246,.55);margin-bottom:14px;}
+  h1{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(28px,6vw,40px);line-height:1.04;
+     letter-spacing:-.03em;margin:0 0 16px;}
+  .lead{margin:0 0 40px;font-size:15px;line-height:1.7;color:rgba(250,250,246,.72);}
+
+  label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+        color:rgba(250,250,246,.55);margin-bottom:9px;}
+  .field{margin-bottom:26px;}
+  input[type=text],textarea{width:100%;background:transparent;color:#FAFAF6;
+        border:none;border-bottom:1px solid rgba(250,250,246,.26);padding:11px 0;
+        font-family:'Jost',sans-serif;font-weight:300;font-size:16px;border-radius:0;}
+  input[type=text]:focus,textarea:focus{outline:none;border-bottom-color:#F5C87A;}
+  textarea{resize:vertical;min-height:132px;line-height:1.6;}
+  .hint{margin:9px 0 0;font-size:12.5px;line-height:1.6;color:rgba(250,250,246,.45);}
+
+  .consent{display:flex;gap:13px;align-items:flex-start;margin:34px 0 30px;
+           border-top:1px solid rgba(250,250,246,.14);padding-top:26px;}
+  .consent input{margin:2px 0 0;width:18px;height:18px;accent-color:#F5C87A;flex-shrink:0;}
+  .consent span{font-size:13.5px;line-height:1.65;color:rgba(250,250,246,.72);
+                text-transform:none;letter-spacing:0;}
+
+  .send{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;
+        background:#FAFAF6;color:#0F0F0E;border:none;border-radius:999px;padding:19px 28px;
+        font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.14em;
+        text-transform:uppercase;cursor:pointer;text-decoration:none;}
+  .send[aria-disabled="true"]{opacity:.38;cursor:not-allowed;}
+  .foot{margin-top:30px;font-size:12.5px;line-height:1.7;color:rgba(250,250,246,.45);}
+  .foot a{color:rgba(250,250,246,.72);}
+
+  @media (max-width:420px){ body{padding:28px 18px 48px;} .top{margin-bottom:34px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a href="/" aria-label="Lumi Lux — Creative Studio">
+      <img src="logo-white.webp" alt="Lumi Lux — Creative Studio" class="logo">
+    </a>
+    <div class="langs">
+      <button type="button" class="lang" id="pt" aria-pressed="true">PT</button>
+      <button type="button" class="lang" id="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <div class="eyebrow" data-t="eyebrow">Depoimento</div>
+  <h1 data-t="title">Como correu a sua sessão?</h1>
+  <p class="lead" data-t="lead">Leva menos de um minuto. O que escrever aqui pode aparecer no nosso site e nas redes, e ajuda quem está a decidir se o espaço serve para o trabalho dele.</p>
+
+  <div class="field">
+    <label for="nome" data-t="lName">Nome</label>
+    <input type="text" id="nome" autocomplete="name">
+  </div>
+
+  <div class="field">
+    <label for="trabalho" data-t="lWork">O que faz</label>
+    <input type="text" id="trabalho" autocomplete="organization-title">
+    <p class="hint" data-t="hWork">Por exemplo: fotógrafa de moda, criador de conteúdo, marca de roupa. Aparece por baixo do seu nome.</p>
+  </div>
+
+  <div class="field">
+    <label for="texto" data-t="lText">O seu depoimento</label>
+    <textarea id="texto"></textarea>
+    <p class="hint" data-t="hText">Escreva à vontade. O que ajuda mais é o concreto: o que veio fotografar, como correu a luz, o que facilitou ou dificultou o dia.</p>
+  </div>
+
+  <label class="consent" for="ok">
+    <input type="checkbox" id="ok">
+    <span data-t="consent">Autorizo a Lumi Lux a publicar este texto e o meu nome no site e nas redes sociais do estúdio.</span>
+  </label>
+
+  <a class="send" id="enviar" href="#" aria-disabled="true">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0F0F0E" stroke-width="1.7" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+    <span data-t="send">Enviar por WhatsApp</span>
+  </a>
+
+  <p class="foot" data-t="foot">Ao carregar, abre-se o WhatsApp com o texto já escrito — só tem de carregar em enviar. Se preferir, escreva-nos para <a href="mailto:info@lumifocusstudio.com">info@lumifocusstudio.com</a>.</p>
+
+</div>
+
+<script>
+var WA = '447846229918';
+
+var T = {
+  pt: {
+    eyebrow: 'Depoimento',
+    title: 'Como correu a sua sessão?',
+    lead: 'Leva menos de um minuto. O que escrever aqui pode aparecer no nosso site e nas redes, e ajuda quem está a decidir se o espaço serve para o trabalho dele.',
+    lName: 'Nome',
+    lWork: 'O que faz',
+    hWork: 'Por exemplo: fotógrafa de moda, criador de conteúdo, marca de roupa. Aparece por baixo do seu nome.',
+    lText: 'O seu depoimento',
+    hText: 'Escreva à vontade. O que ajuda mais é o concreto: o que veio fotografar, como correu a luz, o que facilitou ou dificultou o dia.',
+    consent: 'Autorizo a Lumi Lux a publicar este texto e o meu nome no site e nas redes sociais do estúdio.',
+    send: 'Enviar por WhatsApp',
+    foot: 'Ao carregar, abre-se o WhatsApp com o texto já escrito — só tem de carregar em enviar. Se preferir, escreva-nos para ',
+    mHead: 'Depoimento — Lumi Lux',
+    mName: 'Nome',
+    mWork: 'O que faz',
+    mText: 'Depoimento',
+    mOk: 'Autoriza publicação',
+    mYes: 'sim'
+  },
+  en: {
+    eyebrow: 'Testimonial',
+    title: 'How did your shoot go?',
+    lead: 'It takes under a minute. What you write here may appear on our site and social media, and it helps people deciding whether the space suits their work.',
+    lName: 'Name',
+    lWork: 'What you do',
+    hWork: 'For example: fashion photographer, content creator, clothing brand. It appears under your name.',
+    lText: 'Your testimonial',
+    hText: 'Write freely. The concrete things help most: what you came to shoot, how the light worked, what made the day easier or harder.',
+    consent: 'I allow Lumi Lux to publish this text and my name on the studio website and social media.',
+    send: 'Send on WhatsApp',
+    foot: 'Tapping this opens WhatsApp with the message already written — you just press send. If you prefer, write to us at ',
+    mHead: 'Testimonial — Lumi Lux',
+    mName: 'Name',
+    mWork: 'What they do',
+    mText: 'Testimonial',
+    mOk: 'Allows publication',
+    mYes: 'yes'
+  }
+};
+
+var lang = 'pt';
+var nome = document.getElementById('nome');
+var trabalho = document.getElementById('trabalho');
+var texto = document.getElementById('texto');
+var ok = document.getElementById('ok');
+var botao = document.getElementById('enviar');
+
+function aplicar(l) {
+  lang = (l === 'en') ? 'en' : 'pt';
+  var d = T[lang];
+  document.querySelectorAll('[data-t]').forEach(function (el) {
+    var v = d[el.getAttribute('data-t')];
+    if (typeof v === 'string') el.textContent = v;
+  });
+  // o rodapé termina num endereço de email, que é um link e não texto corrido
+  var pe = document.querySelector('.foot');
+  pe.textContent = d.foot;
+  var a = document.createElement('a');
+  a.href = 'mailto:info@lumifocusstudio.com';
+  a.textContent = 'info@lumifocusstudio.com';
+  pe.appendChild(a);
+  pe.appendChild(document.createTextNode('.'));
+
+  document.getElementById('pt').setAttribute('aria-pressed', String(lang === 'pt'));
+  document.getElementById('en').setAttribute('aria-pressed', String(lang === 'en'));
+  document.documentElement.lang = (lang === 'pt') ? 'pt-PT' : 'en';
+  actualizar();
+}
+
+function pronto() {
+  return nome.value.trim() !== '' && texto.value.trim() !== '' && ok.checked;
+}
+
+function actualizar() {
+  var d = T[lang];
+  botao.setAttribute('aria-disabled', String(!pronto()));
+  var linhas = [d.mHead, ''];
+  if (nome.value.trim())     linhas.push(d.mName + ': ' + nome.value.trim());
+  if (trabalho.value.trim()) linhas.push(d.mWork + ': ' + trabalho.value.trim());
+  if (texto.value.trim())    linhas.push('', d.mText + ':', texto.value.trim());
+  if (ok.checked)            linhas.push('', d.mOk + ': ' + d.mYes);
+  botao.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(linhas.join('\n'));
+}
+
+[nome, trabalho, texto, ok].forEach(function (el) {
+  el.addEventListener('input', actualizar);
+  el.addEventListener('change', actualizar);
+});
+
+botao.addEventListener('click', function (e) {
+  if (!pronto()) {
+    e.preventDefault();
+    (nome.value.trim() === '' ? nome : texto.value.trim() === '' ? texto : ok).focus();
+  }
+});
+
+document.getElementById('pt').addEventListener('click', function () { aplicar('pt'); });
+document.getElementById('en').addEventListener('click', function () { aplicar('en'); });
+
+aplicar('pt');
+</script>
+</body>
+</html>
