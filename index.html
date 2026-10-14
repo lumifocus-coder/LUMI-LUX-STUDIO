@@ -540,6 +540,17 @@
   </div>
 
 
+  <!-- DEPOIMENTOS -->
+  <div id="depoimentos" style="padding:120px 0;box-sizing:border-box;" hidden>
+    <div style="max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:700px;margin-bottom:60px;">
+        <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;"><span data-t="depoimentos.eyebrow">Depoimentos</span></div>
+        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(30px,3.6vw,50px);line-height:1.02;letter-spacing:-.03em;"><span data-t="depoimentos.title">Quem já gravou aqui.</span></h2>
+      </div>
+      <div id="llx-depo-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;"></div>
+    </div>
+  </div>
+
   <!-- INSTAGRAM -->
   <div style="max-width:1400px;margin:0 auto;padding:0 40px 120px;box-sizing:border-box;">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;">
@@ -758,6 +769,7 @@ const TRANSLATIONS = {
     estrutura: { eyebrow: 'Estrutura', title: 'O que já está incluso na reserva.', i1t: 'Iluminação profissional', i1b: 'Flashes, softboxes e refletores prontos para uso, sem custo extra.', i2t: 'Wi-Fi de alta velocidade', i2b: 'Conexão estável para transferência e envio de arquivos no local.', i3t: 'Estacionamento gratuito', i3b: 'Estacionamento gratuito nas redondezas, sujeito a disponibilidade — não há lugares reservados.', i4t: 'Climatização', i4b: 'Ambiente climatizado para o conforto da equipe e do modelo.', i5t: 'Camarim para vestir', i5b: 'Espaço reservado para troca de roupa e retoques de produção.', i6t: 'Check-in autónomo', i6b: 'Como num Airbnb: chave do prédio num cofre na entrada e fechadura inteligente na porta do estúdio — acesso no horário reservado, sem espera.', i7t: 'Casa de banho moderna', i7b: 'Casa de banho própria, dentro do estúdio.', i8t: 'Coluna Bluetooth', i8b: 'Música própria durante a sessão, ligada por Bluetooth.' },
     equipamento: { eyebrow: 'O que está incluído', title: 'Equipamento e produção, sem custo extra.', col1: 'Equipamento fotográfico', e1: 'Godox SK300II', e2: 'Godox SK400III', e3: 'Godox SL60W', e4: 'Godox MS300', e5: '2× softbox 30×120 com grid', e6: 'Octabox 60 e 90', e7: 'C-stand', e8: 'Refletores', col2: 'Cenários e produção', e9: 'Fundos de papel — branco, bege, cinza e castanho', e10: 'Mesa de maquiagem', e11: 'Poltrona, bancos e cadeira', e12: 'Espelho de corpo inteiro', e13: 'Gimbal para telemóvel', note: 'Softbox extra disponível mediante recomendação da equipe. Precisa de outro equipamento específico? Fale connosco antes da reserva.' },
     precos: { eyebrow: 'Preços', title: 'Quanto mais tempo você reserva, menor o valor por hora.', listH: 'Escolha a duração', payT: 'Pagamento', mbway: 'MB WAY · +351 938 053 006', copy: 'Copiar', copied: 'Copiado', revolut: 'Revolut · @lumifocus', open: 'Abrir', iban: 'Transferência bancária (IBAN)', payNote: 'O IBAN é enviado na confirmação da reserva. Indique o seu nome e a data da sessão na descrição do pagamento.', extraT: 'Tempo extra incluído', extraB: 'Todas as reservas incluem 15 a 30 minutos além do tempo contratado, para arrumar e deixar o espaço limpo antes de sair. O código da fechadura inteligente cobre esse período.', h1: '1 hora', h2: '2 horas', h3: '3 horas', h4: '4 horas', h5: '5 horas', h6: '6 horas', fullDay: 'Dia inteiro', fullDayBody: 'Para produções, campanhas e gravações mais longas.', book: 'Reservar', note: 'Reserva feita e paga por agendamento. Todos os valores incluem os itens listados em Estrutura.' },
+    depoimentos: { eyebrow: 'Depoimentos', title: 'Quem já gravou aqui.' },
     instagram: { eyebrow: 'Instagram', follow: 'Seguir no Instagram', alt: 'Estúdio Lumi Lux' },
     localizacao: { eyebrow: 'Localização', title: 'Como nos encontrar', mapAddress: 'Av. Cardoso Lopes, 3 — Amadora', mapCta: 'Ver no Google Maps', addressLabel: 'Morada', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', hoursLabel: 'Horário', hoursVal1: 'Seg – Sex, 09h–20h', hoursVal2: 'Sáb – Dom, 09h–19h', trainLabel: 'Comboio', trainVal1: 'Estação da Amadora', trainVal2: '1–2 min a pé', carNote: 'De carro: estacionamento gratuito nas redondezas, sujeito a disponibilidade — não há lugares reservados.' },
     faq: {
@@ -788,6 +800,7 @@ const TRANSLATIONS = {
     estrutura: { eyebrow: 'Amenities', title: "What's already included in your booking.", i1t: 'Professional lighting', i1b: 'Strobes, softboxes and reflectors ready to use, at no extra cost.', i2t: 'High-speed Wi-Fi', i2b: 'A stable connection for transferring and sending files on site.', i3t: 'Free parking', i3b: 'Free parking nearby, subject to availability — there are no reserved spaces.', i4t: 'Climate control', i4b: 'A comfortable, climate-controlled environment for crew and talent.', i5t: 'Changing room', i5b: 'A dedicated space to change clothes and touch up between shots.', i6t: 'Self check-in', i6b: 'Like an Airbnb: the building key sits in a lockbox at the entrance, and the studio door has a smart lock — access right at your booked time, no waiting.', i7t: 'Modern bathroom', i7b: 'A private bathroom inside the studio itself.', i8t: 'Bluetooth speaker', i8b: 'Play your own music during the session, connected over Bluetooth.' },
     equipamento: { eyebrow: "What's included", title: 'Equipment and production gear, at no extra cost.', col1: 'Photography equipment', e1: 'Godox SK300II', e2: 'Godox SK400III', e3: 'Godox SL60W', e4: 'Godox MS300', e5: '2× 30×120 softbox with grid', e6: '60 cm and 90 cm octabox', e7: 'C-stand', e8: 'Reflectors', col2: 'Sets and production', e9: 'Paper backdrops — white, beige, grey and brown', e10: 'Makeup table', e11: 'Armchair, stools and chair', e12: 'Full-length mirror', e13: 'Phone gimbal', note: 'An extra softbox is available when recommended by the team. Need any other specific gear? Get in touch before booking.' },
     precos: { eyebrow: 'Pricing', title: 'The longer you book, the lower the hourly rate.', listH: 'Choose booking length', payT: 'Payment', mbway: 'MB WAY · +351 938 053 006', copy: 'Copy', copied: 'Copied', revolut: 'Revolut · @lumifocus', open: 'Open', iban: 'Bank transfer (IBAN)', payNote: 'The IBAN is sent with your booking confirmation. Please put your name and the session date in the payment reference.', extraT: 'Extra time included', extraB: 'Every booking includes 15 to 30 minutes on top of the time you pay for, to tidy up and leave the space clean. The smart lock code covers that period.', h1: '1 hour', h2: '2 hours', h3: '3 hours', h4: '4 hours', h5: '5 hours', h6: '6 hours', fullDay: 'Full day', fullDayBody: 'For productions, campaigns and longer shoots.', book: 'Book now', note: 'Booked and paid by appointment. All prices include the items listed under Amenities.' },
+    depoimentos: { eyebrow: 'Testimonials', title: "People who've shot here." },
     instagram: { eyebrow: 'Instagram', follow: 'Follow on Instagram', alt: 'Lumi Lux studio' },
     localizacao: { eyebrow: 'Location', title: 'How to find us', mapAddress: 'Av. Cardoso Lopes, 3 — Amadora', mapCta: 'View on Google Maps', addressLabel: 'Address', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', hoursLabel: 'Hours', hoursVal1: 'Mon – Fri, 9am–8pm', hoursVal2: 'Sat – Sun, 9am–7pm', trainLabel: 'Train', trainVal1: 'Amadora station', trainVal2: '1–2 min walk', carNote: 'By car: free parking nearby, subject to availability — there are no reserved spaces.' },
     faq: {
@@ -950,6 +963,51 @@ const TRANSLATIONS = {
       fab.setAttribute('aria-hidden', dentro ? 'true' : 'false');
       fab.tabIndex = dentro ? -1 : 0;
     }, { threshold: 0.12 }).observe(form);
+  })();
+
+  // ---- depoimentos: vem de depoimentos.json, editado pelo dono ----
+  (function () {
+    var seccao = document.getElementById('depoimentos');
+    var grelha = document.getElementById('llx-depo-grid');
+    if (!seccao || !grelha) return;
+
+    var ASPAS = '<svg width="22" height="16" viewBox="0 0 24 18" fill="#DAD9CE" aria-hidden="true">'
+      + '<path d="M0 18V9.5C0 4.3 3.4.7 8.6 0l.9 2.7C6.2 3.6 4.3 5.9 4.1 8.6H8.6V18H0Zm13 0V9.5c0-5.2 '
+      + '3.4-8.8 8.6-9.5l.9 2.7c-3.3.9-5.2 3.2-5.4 5.9H21.6V18H13Z"/></svg>';
+
+    function cartao(d) {
+      var card = document.createElement('div');
+      card.style.cssText = 'display:flex;flex-direction:column;gap:20px;border-top:2px solid #0F0F0E;'
+        + 'padding-top:28px;box-sizing:border-box;';
+      card.innerHTML = ASPAS;
+
+      var p = document.createElement('p');
+      p.style.cssText = 'margin:0;font-size:17px;line-height:1.6;font-weight:300;';
+      p.textContent = '\u201C' + String(d.texto || '').trim() + '\u201D';   // texto, nunca HTML
+      card.appendChild(p);
+
+      var quem = document.createElement('div');
+      quem.style.cssText = 'font-size:12px;letter-spacing:.06em;color:#6B675F;';
+      var nome = String(d.nome || '').trim();
+      var papel = String(d.papel || '').trim();
+      quem.textContent = papel ? (nome + ' \u00B7 ' + papel) : nome;
+      card.appendChild(quem);
+      return card;
+    }
+
+    fetch('depoimentos.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (dados) {
+        var itens = (dados && Array.isArray(dados.itens)) ? dados.itens : [];
+        itens = itens.filter(function (d) { return d && String(d.texto || '').trim() && String(d.nome || '').trim(); });
+        if (!itens.length) return;                      // sem depoimentos, seccao fica escondida
+        itens.forEach(function (d) { grelha.appendChild(cartao(d)); });
+        // uma ou duas entradas ficam melhor em colunas largas do que espalhadas
+        if (itens.length === 1) grelha.style.gridTemplateColumns = 'minmax(0,620px)';
+        else if (itens.length === 2) grelha.style.gridTemplateColumns = 'repeat(2,minmax(0,1fr))';
+        seccao.hidden = false;
+      })
+      .catch(function () { /* ficheiro em falta ou mal formado: nao mostra nada */ });
   })();
 
   // ---- botao MB WAY: copia o numero para a area de transferencia ----

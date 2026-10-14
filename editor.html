@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Editor de depoimentos — Lumi Lux</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:#FAFAF6;color:#0F0F0E;font-family:'Jost',sans-serif;font-weight:300;
+       padding:40px 20px 80px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  :focus-visible{outline:2px solid #0F0F0E;outline-offset:3px;}
+
+  .eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#6B675F;margin-bottom:12px;}
+  h1{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,5vw,38px);line-height:1.05;
+     letter-spacing:-.03em;margin:0 0 14px;}
+  .lead{margin:0 0 42px;font-size:15px;line-height:1.7;color:#6B675F;max-width:62ch;}
+
+  h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em;
+     margin:0 0 6px;}
+  .sec{border-top:1px solid #DAD9CE;padding-top:30px;margin-top:44px;}
+  .note{margin:0 0 20px;font-size:13.5px;line-height:1.7;color:#6B675F;max-width:62ch;}
+
+  label{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B675F;margin-bottom:8px;}
+  input[type=text],textarea{width:100%;background:#FFFFFF;color:#0F0F0E;border:1px solid #DAD9CE;
+    border-radius:10px;padding:12px 14px;font-family:'Jost',sans-serif;font-weight:300;font-size:15px;}
+  input[type=text]:focus,textarea:focus{outline:none;border-color:#0F0F0E;}
+  textarea{resize:vertical;line-height:1.6;}
+
+  .cartao{border:1px solid #DAD9CE;border-radius:14px;padding:22px;background:#FFFFFF;margin-bottom:16px;}
+  .cab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;}
+  .num{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;}
+  .acts{display:flex;gap:6px;}
+  .dupla{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;}
+
+  button{font-family:'Jost',sans-serif;cursor:pointer;}
+  .mini{border:1px solid #DAD9CE;background:#FAFAF6;border-radius:999px;width:32px;height:32px;
+        font-size:14px;line-height:1;color:#0F0F0E;}
+  .mini:hover{border-color:#0F0F0E;}
+  .mini[disabled]{opacity:.3;cursor:not-allowed;}
+  .mini.rem:hover{border-color:#B4432F;color:#B4432F;}
+
+  .btn{border:1px solid #0F0F0E;background:transparent;color:#0F0F0E;border-radius:999px;
+       padding:14px 26px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
+  .btn:hover{background:#0F0F0E;color:#FAFAF6;}
+  .btn.cheio{background:#0F0F0E;color:#FAFAF6;}
+  .btn.cheio:hover{opacity:.86;}
+  .linha{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+
+  pre{background:#0F0F0E;color:#FAFAF6;border-radius:12px;padding:20px;overflow:auto;
+      font-size:12.5px;line-height:1.6;margin:0;max-height:260px;}
+
+  .passos{counter-reset:p;padding:0;margin:0;list-style:none;}
+  .passos li{counter-increment:p;position:relative;padding-left:40px;margin-bottom:18px;
+             font-size:14.5px;line-height:1.7;color:#3A3832;}
+  .passos li::before{content:counter(p);position:absolute;left:0;top:0;width:26px;height:26px;
+    border:1px solid #DAD9CE;border-radius:999px;display:flex;align-items:center;justify-content:center;
+    font-size:12px;color:#6B675F;}
+  .passos a{color:#0F0F0E;}
+
+  .prev{background:#FAFAF6;border:1px dashed #DAD9CE;border-radius:14px;padding:30px;}
+  .prevgrid{display:grid;gap:26px;}
+  .prevcard{border-top:2px solid #0F0F0E;padding-top:24px;}
+  .prevcard p{margin:16px 0 14px;font-size:16px;line-height:1.6;font-weight:300;}
+  .prevcard .quem{font-size:12px;letter-spacing:.06em;color:#6B675F;}
+  .vazio{font-size:14px;color:#6B675F;margin:0;}
+
+  .aviso{background:#FFF6E6;border:1px solid #F0DCB4;border-radius:10px;padding:14px 16px;
+         font-size:13.5px;line-height:1.6;color:#6B5A3A;margin-top:16px;}
+  .ok{color:#2F6B46;}
+
+  @media (max-width:640px){ .dupla{grid-template-columns:1fr;} body{padding:28px 16px 60px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Lumi Lux · uso interno</div>
+  <h1>Editor de depoimentos</h1>
+  <p class="lead">Quando um depoimento chegar ao WhatsApp, cole-o aqui, veja como vai ficar no site e copie o ficheiro. Esta página não altera nada sozinha — o site só muda depois de guardar o ficheiro no GitHub, no passo final.</p>
+
+  <div class="sec">
+    <h2>Colar do WhatsApp</h2>
+    <p class="note">Copie a mensagem inteira que o cliente lhe enviou e cole-a na caixa. Os campos são preenchidos sozinhos.</p>
+    <textarea id="colar" rows="5" placeholder="Depoimento — Lumi Lux&#10;&#10;Nome: ...&#10;O que faz: ...&#10;&#10;Depoimento:&#10;..."></textarea>
+    <div class="linha">
+      <button type="button" class="btn" id="interpretar">Preencher a partir da mensagem</button>
+    </div>
+    <div class="aviso" id="avisoColar" hidden></div>
+  </div>
+
+  <div class="sec">
+    <h2>Depoimentos</h2>
+    <p class="note">Edite à vontade. Corrigir erros de escrita é normal; mudar o sentido do que a pessoa disse, não.</p>
+    <div id="lista"></div>
+    <div class="linha">
+      <button type="button" class="btn" id="adicionar">Adicionar depoimento</button>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Como vai ficar no site</h2>
+    <p class="note">Esta é a secção Depoimentos tal como aparecerá, com as aspas e o traço entre o nome e a profissão.</p>
+    <div class="prev">
+      <div class="prevgrid" id="preview"></div>
+      <p class="vazio" id="previewVazio">Sem depoimentos. A secção fica escondida no site — não aparece vazia.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Guardar no site</h2>
+    <p class="note">Este é o conteúdo do ficheiro <strong>depoimentos.json</strong>. Siga os quatro passos e o site fica atualizado em cerca de um minuto.</p>
+    <pre id="saida">{ "itens": [] }</pre>
+    <div class="linha">
+      <button type="button" class="btn cheio" id="copiar">Copiar conteúdo</button>
+      <button type="button" class="btn" id="descarregar">Descarregar ficheiro</button>
+    </div>
+    <ol class="passos" style="margin-top:32px;">
+      <li>Carregue em <strong>Copiar conteúdo</strong> aqui em cima.</li>
+      <li>Abra <a href="https://github.com/lumifocus-coder/LUMI-LUX-STUDIO/edit/main/depoimentos.json" target="_blank" rel="noopener">o ficheiro no GitHub</a> (abre já no modo de edição).</li>
+      <li>Apague tudo o que lá estiver — <em>Ctrl+A</em> e depois <em>Delete</em> — e cole o que copiou.</li>
+      <li>Desça até ao fim e carregue no botão verde <strong>Commit changes</strong>. O site atualiza-se sozinho.</li>
+    </ol>
+  </div>
+
+</div>
+
+<script>
+var itens = [];
+var lista = document.getElementById('lista');
+var saida = document.getElementById('saida');
+var preview = document.getElementById('preview');
+var previewVazio = document.getElementById('previewVazio');
+var avisoColar = document.getElementById('avisoColar');
+
+function ficheiro() {
+  var limpos = itens
+    .map(function (d) {
+      return { texto: d.texto.trim(), nome: d.nome.trim(), papel: d.papel.trim() };
+    })
+    .filter(function (d) { return d.texto && d.nome; });
+  return JSON.stringify({ itens: limpos }, null, 2);
+}
+
+function desenharLista() {
+  lista.innerHTML = '';
+  itens.forEach(function (d, i) {
+    var c = document.createElement('div');
+    c.className = 'cartao';
+
+    var cab = document.createElement('div');
+    cab.className = 'cab';
+    var n = document.createElement('div');
+    n.className = 'num';
+    n.textContent = 'Depoimento ' + (i + 1);
+    var acts = document.createElement('div');
+    acts.className = 'acts';
+
+    function mini(txt, titulo, desativado, accao, extra) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'mini' + (extra ? ' ' + extra : '');
+      b.textContent = txt;
+      b.title = titulo;
+      b.setAttribute('aria-label', titulo);
+      b.disabled = !!desativado;
+      b.addEventListener('click', accao);
+      return b;
+    }
+    acts.appendChild(mini('↑', 'Subir', i === 0, function () {
+      var t = itens[i - 1]; itens[i - 1] = itens[i]; itens[i] = t; tudo();
+    }));
+    acts.appendChild(mini('↓', 'Descer', i === itens.length - 1, function () {
+      var t = itens[i + 1]; itens[i + 1] = itens[i]; itens[i] = t; tudo();
+    }));
+    acts.appendChild(mini('×', 'Remover', false, function () {
+      itens.splice(i, 1); tudo();
+    }, 'rem'));
+
+    cab.appendChild(n); cab.appendChild(acts); c.appendChild(cab);
+
+    var lt = document.createElement('label');
+    lt.textContent = 'Depoimento';
+    lt.setAttribute('for', 'tx' + i);
+    var ta = document.createElement('textarea');
+    ta.id = 'tx' + i; ta.rows = 4; ta.value = d.texto;
+    ta.addEventListener('input', function () { itens[i].texto = ta.value; so(); });
+    c.appendChild(lt); c.appendChild(ta);
+
+    var dupla = document.createElement('div');
+    dupla.className = 'dupla';
+
+    function campo(id, rotulo, valor, chave, dica) {
+      var box = document.createElement('div');
+      var l = document.createElement('label');
+      l.textContent = rotulo; l.setAttribute('for', id);
+      var inp = document.createElement('input');
+      inp.type = 'text'; inp.id = id; inp.value = valor; inp.placeholder = dica;
+      inp.addEventListener('input', function () { itens[i][chave] = inp.value; so(); });
+      box.appendChild(l); box.appendChild(inp);
+      return box;
+    }
+    dupla.appendChild(campo('nm' + i, 'Nome', d.nome, 'nome', 'Marta Figueiredo'));
+    dupla.appendChild(campo('pp' + i, 'O que faz', d.papel, 'papel', 'Fotógrafa de moda'));
+    c.appendChild(dupla);
+
+    lista.appendChild(c);
+  });
+}
+
+function desenharPreview() {
+  preview.innerHTML = '';
+  var validos = itens.filter(function (d) { return d.texto.trim() && d.nome.trim(); });
+  previewVazio.hidden = validos.length > 0;
+  preview.style.gridTemplateColumns = validos.length >= 3 ? 'repeat(3,minmax(0,1fr))'
+    : validos.length === 2 ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,560px)';
+  validos.forEach(function (d) {
+    var c = document.createElement('div');
+    c.className = 'prevcard';
+    c.innerHTML = '<svg width="22" height="16" viewBox="0 0 24 18" fill="#DAD9CE" aria-hidden="true">'
+      + '<path d="M0 18V9.5C0 4.3 3.4.7 8.6 0l.9 2.7C6.2 3.6 4.3 5.9 4.1 8.6H8.6V18H0Zm13 0V9.5c0-5.2 '
+      + '3.4-8.8 8.6-9.5l.9 2.7c-3.3.9-5.2 3.2-5.4 5.9H21.6V18H13Z"/></svg>';
+    var p = document.createElement('p');
+    p.textContent = '“' + d.texto.trim() + '”';
+    var q = document.createElement('div');
+    q.className = 'quem';
+    q.textContent = d.papel.trim() ? (d.nome.trim() + ' · ' + d.papel.trim()) : d.nome.trim();
+    c.appendChild(p); c.appendChild(q);
+    preview.appendChild(c);
+  });
+}
+
+function so() { saida.textContent = ficheiro(); desenharPreview(); }
+function tudo() { desenharLista(); so(); }
+
+document.getElementById('adicionar').addEventListener('click', function () {
+  itens.push({ texto: '', nome: '', papel: '' });
+  tudo();
+  var campos = lista.querySelectorAll('textarea');
+  if (campos.length) campos[campos.length - 1].focus();
+});
+
+// --- interpretar a mensagem do WhatsApp -------------------------------------
+document.getElementById('interpretar').addEventListener('click', function () {
+  var txt = document.getElementById('colar').value;
+  if (!txt.trim()) { aviso('Cole primeiro a mensagem na caixa.'); return; }
+
+  var nome = (txt.match(/^\s*(?:Nome|Name)\s*:\s*(.+)$/mi) || [])[1] || '';
+  var papel = (txt.match(/^\s*(?:O que faz|What they do|What you do)\s*:\s*(.+)$/mi) || [])[1] || '';
+  var corpo = '';
+  var m = txt.match(/^\s*(?:Depoimento|Testimonial)\s*:\s*$([\s\S]*)/mi);
+  if (m) {
+    corpo = m[1];
+    // o texto acaba onde começa a linha da autorização
+    corpo = corpo.split(/^\s*(?:Autoriza publicação|Allows publication)\s*:/mi)[0];
+  }
+  if (!nome && !corpo.trim()) {
+    aviso('Não reconheci o formato. Preencha os campos à mão — o resultado é o mesmo.');
+    return;
+  }
+  itens.push({ texto: corpo.trim(), nome: nome.trim(), papel: papel.trim() });
+  document.getElementById('colar').value = '';
+  aviso('Adicionado. Confirme o texto em baixo antes de copiar o ficheiro.', true);
+  tudo();
+});
+
+function aviso(msg, bom) {
+  avisoColar.textContent = msg;
+  avisoColar.hidden = false;
+  avisoColar.className = 'aviso' + (bom ? ' ok' : '');
+}
+
+// --- copiar e descarregar ---------------------------------------------------
+document.getElementById('copiar').addEventListener('click', function () {
+  var b = this, antes = b.textContent, txt = ficheiro();
+  function feito() {
+    b.textContent = 'Copiado';
+    setTimeout(function () { b.textContent = antes; }, 2000);
+  }
+  function reserva() {
+    var t = document.createElement('textarea');
+    t.value = txt; t.style.position = 'fixed'; t.style.top = '-1000px';
+    document.body.appendChild(t); t.select();
+    try { if (document.execCommand('copy')) feito(); } catch (e) {}
+    document.body.removeChild(t);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(feito, reserva);
+  } else { reserva(); }
+});
+
+document.getElementById('descarregar').addEventListener('click', function () {
+  var blob = new Blob([ficheiro()], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'depoimentos.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+});
+
+// --- arrancar com o que já está publicado -----------------------------------
+fetch('depoimentos.json', { cache: 'no-cache' })
+  .then(function (r) { return r.ok ? r.json() : null; })
+  .then(function (d) {
+    if (d && Array.isArray(d.itens)) {
+      itens = d.itens.map(function (x) {
+        return { texto: String(x.texto || ''), nome: String(x.nome || ''), papel: String(x.papel || '') };
+      });
+    }
+  })
+  .catch(function () {})
+  .then(function () { tudo(); });
+</script>
+</body>
+</html>
