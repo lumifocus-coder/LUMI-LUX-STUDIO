@@ -181,6 +181,20 @@
 
   </div>
 
+  <!-- AVISO DE NATAL — escondido por JS depois de 24/12/2026 -->
+  <div id="llx-natal" style="background:#0F0F0E;color:#FAFAF6;padding:26px 40px;box-sizing:border-box;">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:22px;">
+      <div style="display:flex;align-items:flex-start;gap:16px;min-width:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5C87A" stroke-width="1.4" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><path d="M12 3l2.4 5.1 5.6.7-4.1 3.8 1.1 5.5L12 15.4 6.9 18.1 8 12.6 3.9 8.8l5.6-.7L12 3Z"></path></svg>
+        <div style="display:flex;flex-direction:column;gap:7px;min-width:0;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.01em;"><span data-t="natal.title">Cenário de Natal montado no estúdio</span></div>
+          <div style="font-size:13.5px;line-height:1.65;color:rgba(250,250,246,.72);max-width:62ch;"><span data-t="natal.body">De 2 de novembro a 24 de dezembro, o cenário de Natal fica montado e disponível em qualquer reserva, sem custo extra. Use-o como quiser — só pedimos que deixe tudo no lugar para quem vem a seguir.</span></div>
+        </div>
+      </div>
+      <a href="#reservar" class="llx-btn-light" style="padding:14px 26px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;white-space:nowrap;"><span data-t="natal.cta">Reservar sessão de Natal</span></a>
+    </div>
+  </div>
+
   <!-- QUICK FACTS STRIP -->
   <div style="width:100%;border-bottom:1px solid #DAD9CE;box-sizing:border-box;">
     <div style="max-width:1400px;margin:0 auto;padding:36px 40px;box-sizing:border-box;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;">
@@ -762,6 +776,7 @@ const TRANSLATIONS = {
   pt: {
     nav: { about: 'Sobre', space: 'Espaço', services: 'Serviços', prices: 'Preços', contact: 'Contato', book: 'Reservar', igLabel: 'Instagram do Lumi Lux — abre em nova janela', igCta: 'Ver no Instagram' },
     hero: { eyebrow: 'Creative Studio', title: 'UM ESPAÇO PARA A TUA CRIATIVIDADE.', subtitle: 'Aluga o nosso estúdio de fotografia e vídeo na Amadora e dá vida às tuas ideias. Para fotógrafos, videomakers e criadores de conteúdo que procuram um espaço versátil para as suas produções.', book: 'Reservar estúdio', viewSpace: 'Explorar o espaço', scroll: 'Descer' },
+    natal: { title: 'Cenário de Natal montado no estúdio', body: 'De 2 de novembro a 24 de dezembro, o cenário de Natal fica montado e disponível em qualquer reserva, sem custo extra. Use-o como quiser — só pedimos que deixe tudo no lugar para quem vem a seguir.', cta: 'Reservar sessão de Natal' },
     quickFacts: { area: '114 m²', areaLabel: 'área livre', open: 'Aberto', openLabel: 'sem divisórias', days: '7 dias', daysLabel: 'por semana, com agendamento', price: '30 €', priceLabel: 'a partir de / hora' },
     sobre: { title: 'Lumi Lux', p1: 'O Lumi Lux é um estúdio de fotografia e vídeo na Amadora, a dois minutos a pé da estação e a poucos minutos do centro de Lisboa.', p2: 'São 114 m² de planta aberta, sem divisórias, com iluminação profissional permanentemente montada. Por ser um espaço em cave, a luz é inteiramente controlada — o resultado é o mesmo às nove da manhã ou às oito da noite, faça sol ou faça chuva.', p3: 'O estúdio funciona por marcação, sete dias por semana, com check-in autónomo. A reserva dá acesso ao espaço e a todo o equipamento, sem custos adicionais.' },
     espaco: { eyebrow: 'O espaço', title: '114 m² abertos, sem paredes no meio do caminho.', body: 'Um único galpão, sem divisórias internas — você organiza cenário, luz e equipe do jeito que o trabalho pedir, sem trocar de sala.', area: 'Área', areaVal: '114 m²', divisions: 'Divisórias', divisionsVal: 'Nenhuma — planta livre', location: 'Localização', locationVal: '1–2 min a pé da Estação da Amadora', light: 'Luz', lightVal: '100% montada — espaço em cave, sem luz natural', priceSuffix: '/hora', book: 'Reservar', photoAlt: 'Área principal do estúdio, aberta, com fundo infinito e iluminação montada' },
@@ -793,6 +808,7 @@ const TRANSLATIONS = {
   en: {
     nav: { about: 'About', space: 'Space', services: 'Services', prices: 'Pricing', contact: 'Contact', book: 'Book', igLabel: 'Lumi Lux on Instagram — opens in a new window', igCta: 'See on Instagram' },
     hero: { eyebrow: 'Creative Studio', title: 'A SPACE FOR YOUR CREATIVITY.', subtitle: 'Rent our photography and video studio in Amadora and bring your ideas to life. For photographers, videomakers and content creators looking for a versatile space for their productions.', book: 'Book the studio', viewSpace: 'Explore the space', scroll: 'Scroll' },
+    natal: { title: 'Christmas set up in the studio', body: 'From 2 November to 24 December the Christmas set stays up and is included with any booking, at no extra cost. Use it however you like — we only ask that you leave everything as you found it for the next shoot.', cta: 'Book a Christmas session' },
     quickFacts: { area: '114 m²', areaLabel: 'open floor area', open: 'Open plan', openLabel: 'no partitions', days: '7 days', daysLabel: 'a week, by appointment', price: '€30', priceLabel: 'starting price / hour' },
     sobre: { title: 'Lumi Lux', p1: 'Lumi Lux is a photography and video studio in Amadora, a two-minute walk from the station and a short ride from central Lisbon.', p2: 'It is 114 m² of open floor with no partitions, and professional lighting permanently rigged. Because the space sits below ground, the light is entirely under your control — the result is the same at nine in the morning or eight at night, rain or shine.', p3: 'The studio runs by appointment, seven days a week, with self check-in. Your booking covers the space and all of the equipment, at no extra cost.' },
     espaco: { eyebrow: 'The space', title: '114 m² wide open, with nothing in the way.', body: 'One single open room, with no internal walls — set up backdrop, lighting and crew however the job needs, without ever changing rooms.', area: 'Area', areaVal: '114 m²', divisions: 'Partitions', divisionsVal: 'None — open floor plan', location: 'Location', locationVal: '1–2 min walk from Amadora station', light: 'Lighting', lightVal: '100% studio lighting — basement space, no natural light', priceSuffix: '/hour', book: 'Book now', photoAlt: 'Main studio area, open, with seamless backdrop and lighting set up' },
@@ -963,6 +979,18 @@ const TRANSLATIONS = {
       fab.setAttribute('aria-hidden', dentro ? 'true' : 'false');
       fab.tabIndex = dentro ? -1 : 0;
     }, { threshold: 0.12 }).observe(form);
+  })();
+
+  // ---- aviso de Natal: desaparece sozinho depois de 24/12/2026 ----
+  (function () {
+    var faixa = document.getElementById('llx-natal');
+    if (!faixa) return;
+    // fim do dia 24 de dezembro de 2026, hora de Lisboa (UTC no inverno)
+    var fim = Date.UTC(2026, 11, 25, 0, 0, 0);
+    if (Date.now() >= fim) {
+      faixa.hidden = true;
+      faixa.style.display = 'none';
+    }
   })();
 
   // ---- depoimentos: vem de depoimentos.json, editado pelo dono ----
