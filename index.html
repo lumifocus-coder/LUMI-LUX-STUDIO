@@ -657,12 +657,15 @@
         <label style="display:flex;flex-direction:column;gap:9px;">
           <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fType">Tipo de sessão</span></span>
           <select id="llx-type" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
-              <option value="moda" data-t="reservar.k1">Moda &amp; E-commerce</option>
-              <option value="natal" data-t="reservar.k6">Natal e fim de ano</option>
-              <option value="retrato" data-t="reservar.k2">Retrato &amp; Headshot</option>
-              <option value="beleza" data-t="reservar.k3">Beleza &amp; Still</option>
-              <option value="video" data-t="reservar.k4">Vídeo</option>
-              <option value="outro" data-t="reservar.k5">Outro</option>
+              <option value="moda" data-t="reservar.k1">Moda</option>
+            <option value="corporativo" data-t="reservar.k2">Sessão corporativa &amp; Retrato</option>
+            <option value="headshot" data-t="reservar.k3">Headshot &amp; Beauty shot</option>
+            <option value="lifestyle" data-t="reservar.k4">Lifestyle</option>
+            <option value="video" data-t="reservar.k5">Vídeo</option>
+            <option value="natal" data-t="reservar.k6">Sessão de Natal</option>
+            <option value="noivado" data-t="reservar.k7">Noivado</option>
+            <option value="namorados" data-t="reservar.k8">Dia dos Namorados</option>
+            <option value="outro" data-t="reservar.k9">Outros</option>
             </select>
         </label>
         <label style="display:flex;flex-direction:column;gap:9px;">
@@ -678,6 +681,11 @@
       <label style="display:flex;flex-direction:column;gap:9px;">
         <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fName">O seu nome</span></span>
         <input id="llx-name" type="text" autocomplete="name" placeholder="Como se chama?" data-t-placeholder="reservar.phName" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
+      </label>
+
+      <label style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6B675F;"><span data-t="reservar.fContact">Email ou telemóvel (opcional)</span></span>
+        <input id="llx-contact" type="text" autocomplete="email" placeholder="Para lhe respondermos" data-t-placeholder="reservar.phContact" style="font-family:'Jost',sans-serif;font-size:15px;color:#0F0F0E;background:#FAFAF6;border:1px solid #DAD9CE;padding:14px 16px;min-height:50px;box-sizing:border-box;width:100%;border-radius:0;">
       </label>
 
       <label style="display:flex;flex-direction:column;gap:9px;">
@@ -801,7 +809,7 @@ const TRANSLATIONS = {
         { q: 'Têm estacionamento?', a: 'Não temos lugares reservados, mas há estacionamento gratuito nas redondezas, sujeito a disponibilidade.' }
       ]
     },
-    reservar: { title: 'Reserve o seu horário', subtitle: 'Escolha a duração e o dia. O pedido segue por WhatsApp já preenchido e confirmamos a disponibilidade.', fDuration: 'Duração', fType: 'Tipo de sessão', fDate: 'Dia', fTime: 'Hora de início', fName: 'O seu nome', fNotes: 'Notas (opcional)', phName: 'Como se chama?', phNotes: 'Equipa, cenário, equipamento extra…', d1: '1 hora — 30 €', d2: '2 horas — 50 €', d3: '3 horas — 70 €', d4: '4 horas — 90 €', d5: '5 horas — 115 €', d6: '6 horas — 140 €', d7: 'Dia inteiro — 200 €', k1: 'Moda & E-commerce', k2: 'Retrato & Headshot', k3: 'Beleza & Still', k4: 'Vídeo', k5: 'Outro', k6: 'Natal e fim de ano', total: 'Total', send: 'Enviar pedido por WhatsApp', msgIntro: 'Olá! Gostaria de reservar o estúdio Lumi Lux.', mName: 'Nome', mDate: 'Dia', mTime: 'Início', mDur: 'Duração', mType: 'Sessão', mTotal: 'Total', mNotes: 'Notas', note: 'A reserva só fica confirmada depois da nossa resposta. Todas as reservas incluem 15 a 30 minutos extra para arrumar o espaço antes de sair.' },
+    reservar: { title: 'Reserve o seu horário', subtitle: 'Escolha a duração e o dia. O pedido segue por WhatsApp já preenchido e confirmamos a disponibilidade.', fDuration: 'Duração', fType: 'Tipo de sessão', fDate: 'Dia', fTime: 'Hora de início', fName: 'O seu nome', fContact: 'Email ou telemóvel (opcional)', phContact: 'Para lhe respondermos', fNotes: 'Notas (opcional)', phName: 'Como se chama?', phNotes: 'Equipa, cenário, equipamento extra…', d1: '1 hora — 30 €', d2: '2 horas — 50 €', d3: '3 horas — 70 €', d4: '4 horas — 90 €', d5: '5 horas — 115 €', d6: '6 horas — 140 €', d7: 'Dia inteiro — 200 €', k1: 'Moda', k2: 'Sessão corporativa & Retrato', k3: 'Headshot & Beauty shot', k4: 'Lifestyle', k5: 'Vídeo', k6: 'Sessão de Natal', k7: 'Noivado', k8: 'Dia dos Namorados', k9: 'Outros', total: 'Total', send: 'Enviar pedido por WhatsApp', msgIntro: 'Olá! Gostaria de reservar o estúdio Lumi Lux.', mName: 'Nome', mDate: 'Dia', mTime: 'Início', mDur: 'Duração', mType: 'Sessão', mTotal: 'Total', mContact: 'Contacto', mNotes: 'Notas', note: 'A reserva só fica confirmada depois da nossa resposta. Todas as reservas incluem 15 a 30 minutos extra para arrumar o espaço antes de sair.' },
     termos: { title: 'Termos & Condições', refundsTitle: 'Reembolsos & Cancelamentos', r1: 'Aviso com 7 dias de antecedência — reembolso de 100%', r2: 'Entre 7 dias e 48h antes da sessão — reembolso de 50% ou reagendamento gratuito', r3: 'Entre 48h e 24h antes da sessão — reagendamento com taxa de 50%', r4: 'Menos de 24h antes da sessão — sem reembolso nem reagendamento', bringTitle: 'O que pode trazer para o estúdio', bringBody: 'Não é permitido trazer areia, argila, tinta ou terra para o estúdio, para proteger o piso e os fundos. O uso destes materiais sem aviso prévio pode resultar no fim da sessão e/ou numa taxa de limpeza. Não é permitido o consumo de álcool no espaço.', note: 'Termos de referência — ajuste conforme a sua política antes de publicar.' },
     footer: { tagline: 'Espaço aberto de 114 m² para fotografia e produções audiovisuais, na Amadora.', addressLabel: 'Endereço', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', addressNote: '1–2 min a pé da Estação da Amadora', contactLabel: 'Contacto', phoneBook: '+44 7846 229918 — reservas (WhatsApp)', phoneManager: '+351 938 053 006 — gerência (MB WAY)', hoursLabel: 'Horário', hoursVal: 'Seg – Sex 09h–20h', hoursVal2: 'Sáb – Dom 09h–19h', hoursNote: 'Apenas com agendamento confirmado', copyright: '© 2026 Lumi Lux — Creative Studio', terms: 'Termos', faqLink: 'FAQ' }
   },
@@ -833,7 +841,7 @@ const TRANSLATIONS = {
         { q: 'Do you have parking?', a: "We don't have reserved spaces, but there is free parking nearby, subject to availability." }
       ]
     },
-    reservar: { title: 'Book your session', subtitle: 'Pick a length and a day. Your request goes out over WhatsApp already filled in, and we confirm availability.', fDuration: 'Length', fType: 'Type of shoot', fDate: 'Day', fTime: 'Start time', fName: 'Your name', fNotes: 'Notes (optional)', phName: "What's your name?", phNotes: 'Crew, set, extra equipment…', d1: '1 hour — €30', d2: '2 hours — €50', d3: '3 hours — €70', d4: '4 hours — €90', d5: '5 hours — €115', d6: '6 hours — €140', d7: 'Full day — €200', k1: 'Fashion & E-commerce', k2: 'Portrait & Headshot', k3: 'Beauty & Still Life', k4: 'Video', k5: 'Other', k6: 'Christmas & New Year', total: 'Total', send: 'Send request on WhatsApp', msgIntro: 'Hi! I would like to book the Lumi Lux studio.', mName: 'Name', mDate: 'Day', mTime: 'Start', mDur: 'Length', mType: 'Shoot', mTotal: 'Total', mNotes: 'Notes', note: 'Your booking is only confirmed once we reply. Every booking includes 15 to 30 extra minutes to tidy the space before leaving.' },
+    reservar: { title: 'Book your session', subtitle: 'Pick a length and a day. Your request goes out over WhatsApp already filled in, and we confirm availability.', fDuration: 'Length', fType: 'Type of shoot', fDate: 'Day', fTime: 'Start time', fName: 'Your name', fContact: 'Email or phone (optional)', phContact: 'So we can reply', fNotes: 'Notes (optional)', phName: "What's your name?", phNotes: 'Crew, set, extra equipment…', d1: '1 hour — €30', d2: '2 hours — €50', d3: '3 hours — €70', d4: '4 hours — €90', d5: '5 hours — €115', d6: '6 hours — €140', d7: 'Full day — €200', k1: 'Fashion', k2: 'Corporate & Portrait', k3: 'Headshot & Beauty', k4: 'Lifestyle', k5: 'Video', k6: 'Christmas session', k7: 'Engagement', k8: 'Valentine’s Day', k9: 'Other', total: 'Total', send: 'Send request on WhatsApp', msgIntro: 'Hi! I would like to book the Lumi Lux studio.', mName: 'Name', mDate: 'Day', mTime: 'Start', mDur: 'Length', mType: 'Shoot', mTotal: 'Total', mContact: 'Contact', mNotes: 'Notes', note: 'Your booking is only confirmed once we reply. Every booking includes 15 to 30 extra minutes to tidy the space before leaving.' },
     termos: { title: 'Terms & Conditions', refundsTitle: 'Refunds & Cancellations', r1: '7 days notice or more — 100% refund', r2: 'Between 7 days and 48h before the session — 50% refund or free reschedule', r3: 'Between 48h and 24h before the session — reschedule with a 50% fee', r4: 'Less than 24h before the session — no refund or reschedule', bringTitle: 'What you can bring to the studio', bringBody: 'Sand, clay, paint or soil are not allowed in the studio, to protect the floor and backdrops. Using these materials without prior notice may result in the session being ended and/or a cleaning fee. Alcohol is not permitted in the space.', note: 'Reference terms — adjust to your own policy before publishing.' },
     footer: { tagline: 'An open 114 m² space for photography and audiovisual production, in Amadora.', addressLabel: 'Address', addressVal1: 'Av. Cardoso Lopes, 3', addressVal2: 'Amadora, Portugal', addressNote: '1–2 min walk from Amadora station', contactLabel: 'Contact', phoneBook: '+44 7846 229918 — bookings (WhatsApp)', phoneManager: '+351 938 053 006 — management (MB WAY)', hoursLabel: 'Hours', hoursVal: 'Mon – Fri 9am–8pm', hoursVal2: 'Sat – Sun 9am–7pm', hoursNote: 'By confirmed appointment only', copyright: '© 2026 Lumi Lux — Creative Studio', terms: 'Terms', faqLink: 'FAQ' }
   }
@@ -915,6 +923,7 @@ const TRANSLATIONS = {
     var dia = document.getElementById('llx-date');
     var hora = document.getElementById('llx-time');
     var nome = document.getElementById('llx-name');
+    var contacto = document.getElementById('llx-contact');
     var notas = document.getElementById('llx-notes');
     var total = document.getElementById('llx-total');
     var wa = document.getElementById('llx-wa');
@@ -946,6 +955,7 @@ const TRANSLATIONS = {
 
       var linhas = [d.reservar.msgIntro, ''];
       if (nome && nome.value.trim()) linhas.push(d.reservar.mName + ': ' + nome.value.trim());
+      if (contacto && contacto.value.trim()) linhas.push(d.reservar.mContact + ': ' + contacto.value.trim());
       if (diaLegivel())             linhas.push(d.reservar.mDate + ': ' + diaLegivel());
       if (hora && hora.value)       linhas.push(d.reservar.mTime + ': ' + hora.value);
       linhas.push(d.reservar.mDur + ': ' + dur.options[dur.selectedIndex].text);
@@ -956,13 +966,49 @@ const TRANSLATIONS = {
       wa.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(linhas.join('\n'));
     }
 
-    [dur, typ, dia, hora, nome, notas].forEach(function (el) {
+    [dur, typ, dia, hora, nome, contacto, notas].forEach(function (el) {
       if (!el) return;
       el.addEventListener('change', refresh);
       el.addEventListener('input', refresh);
     });
     window.llxRefreshBooking = refresh;   // chamado tambem ao trocar de idioma
     refresh();
+
+    // ---- copia do pedido por email, para nao se perder quem desiste no WhatsApp ----
+    var CHAVE = 'fe45eca2-50bd-4967-beee-fc0b29577592';
+    var enviado = false;
+
+    wa.addEventListener('click', function () {
+      if (enviado) return;             // nao repete se carregar duas vezes
+      enviado = true;
+      setTimeout(function () { enviado = false; }, 20000);
+
+      var d = TRANSLATIONS[lang];
+      var campos = {
+        access_key: CHAVE,
+        subject: 'Pedido de reserva — Lumi Lux',
+        from_name: 'Site Lumi Lux',
+        Nome: (nome && nome.value.trim()) || '(nao indicado)',
+        Contacto: (contacto && contacto.value.trim()) || '(nao indicado)',
+        Dia: diaLegivel() || '(nao indicado)',
+        Hora: (hora && hora.value) || '(nao indicada)',
+        Duracao: dur.options[dur.selectedIndex].text,
+        Sessao: typ ? typ.options[typ.selectedIndex].text : '',
+        Total: euros(),
+        Notas: (notas && notas.value.trim()) || '',
+        Idioma: lang,
+        Origem: 'Formulario do site — o cliente pode ou nao ter concluido o envio no WhatsApp'
+      };
+
+      try {
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(campos),
+          keepalive: true
+        }).catch(function () {});     // falhar aqui nunca estraga o WhatsApp
+      } catch (e) {}
+    });
   })();
 
   // ---- o atalho flutuante do Instagram nao pode tapar o botao de reservar ----
