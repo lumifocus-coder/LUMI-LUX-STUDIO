@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Painel Lumi Lux</title>
+<meta name="description" content="Painel do estúdio Lumi Lux: código de acesso, reservas, pagamentos e checklist.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0F0F0E">
+<meta name="color-scheme" content="dark">
+<link rel="manifest" href="/painel-manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Lumi Lux">
+<link rel="apple-touch-icon" href="/painel-icon-180.png">
+<link rel="icon" href="/painel-icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* App de telemóvel: barra de separadores em baixo, uma vista de cada vez.
+   Escuro por omissão — é um painel de trabalho, usado no estúdio e na rua. */
+:root{
+  --tinta:#0C0C0B;
+  --sup:#171716;
+  --sup2:#201F1D;
+  --texto:#F4F3EE;
+  --suave:#9C978C;
+  --linha:#302F2B;
+  --ambar:#F5C87A;
+  --ambar-escuro:#17160F;
+  --verde:#8CC79A;
+  --alerta:#E39076;
+  --display:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --corpo:'Jost','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+  --topo:env(safe-area-inset-top,0px);
+  --fundo:env(safe-area-inset-bottom,0px);
+  --esq:env(safe-area-inset-left,0px);
+  --dir:env(safe-area-inset-right,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:rgba(245,200,122,.2)}
+html,body{margin:0;padding:0}
+body{
+  background:var(--tinta);color:var(--texto);
+  font-family:var(--corpo);font-weight:300;font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overscroll-behavior-y:none;
+}
+h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+img{max-width:100%}
+a{color:inherit}
+
+/* ---------- barra de topo ---------- */
+.barra{
+  position:sticky;top:0;z-index:20;background:var(--tinta);
+  border-bottom:1px solid var(--linha);
+  padding-top:calc(var(--topo) + 12px);padding-bottom:12px;
+  padding-left:max(18px,var(--esq));padding-right:max(18px,var(--dir));
+  display:flex;align-items:center;gap:11px;
+}
+.barra img{width:30px;height:30px;border-radius:6px;display:block}
+.barra h1{font-size:17px;line-height:1.1}
+.barra .sub{font-size:11.5px;color:var(--suave);margin-top:1px}
+.barra .dir{margin-left:auto;text-align:right;font-size:11px;color:var(--suave);line-height:1.35}
+#estadoRede{display:none}
+#estadoRede.on{display:block;color:var(--ambar)}
+
+/* ---------- vistas ---------- */
+main{
+  padding-left:max(18px,var(--esq));padding-right:max(18px,var(--dir));
+  padding-block:20px;
+  padding-bottom:calc(96px + var(--fundo));
+  max-width:620px;margin:0 auto;
+}
+.vista{display:none}
+.vista.activa{display:block}
+.grupo{margin-bottom:26px}
+.grupo > h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);font-weight:600;margin-bottom:11px}
+
+.cartao{background:var(--sup);border:1px solid var(--linha);border-radius:12px;padding:16px}
+.cartao + .cartao{margin-top:10px}
+.cartao h3{font-size:16px}
+.cartao .nota{font-size:13.5px;color:var(--suave);margin-top:6px}
+
+/* ---------- botões ---------- */
+.btn{
+  display:flex;align-items:center;gap:12px;width:100%;
+  background:var(--sup);border:1px solid var(--linha);border-radius:12px;
+  color:var(--texto);font-family:var(--display);font-weight:600;font-size:15px;
+  padding:16px;text-decoration:none;text-align:left;cursor:pointer;
+  min-height:58px;
+}
+.btn:active{background:var(--sup2)}
+.btn .ic{width:26px;flex:0 0 26px;text-align:center;font-size:17px;color:var(--ambar)}
+.btn .tx{min-width:0}
+.btn .tx span{display:block;font-family:var(--corpo);font-weight:300;font-size:12.5px;color:var(--suave);margin-top:1px}
+.btn .seta{margin-left:auto;color:var(--suave);font-size:18px;flex:0 0 auto}
+.btn + .btn{margin-top:9px}
+.btn.forte{background:var(--ambar);border-color:var(--ambar);color:var(--ambar-escuro)}
+.btn.forte .ic,.btn.forte .seta{color:var(--ambar-escuro)}
+.btn.forte .tx span{color:rgba(23,22,15,.72)}
+.btn.forte:active{background:#E0B567}
+.btn:focus-visible{outline:2px solid var(--ambar);outline-offset:2px}
+
+/* ---------- formulário ---------- */
+label:not(.ck){display:block;font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--suave);margin-bottom:6px}
+input,select,textarea{
+  width:100%;background:var(--sup2);border:1px solid var(--linha);border-radius:9px;
+  color:var(--texto);font-family:var(--corpo);font-weight:400;font-size:16px;
+  padding:13px 13px;appearance:none;
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ambar);outline-offset:1px;border-color:var(--ambar)}
+select{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%239C978C' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:38px}
+.campo{margin-bottom:13px}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:360px){.par{grid-template-columns:1fr}}
+
+/* ---------- saída ---------- */
+.saida{background:var(--sup2);border:1px solid var(--linha);border-radius:10px;padding:14px;margin-top:4px}
+.saida pre{font-family:var(--corpo);font-weight:300;font-size:14px;white-space:pre-wrap;word-break:break-word;margin:0;line-height:1.55}
+.total{font-family:var(--display);font-weight:700;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.total small{font-family:var(--corpo);font-weight:300;font-size:13px;color:var(--suave);display:block;margin-top:5px;letter-spacing:0}
+
+/* ---------- copiar ---------- */
+.copia{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sup);border:1px solid var(--linha);border-radius:12px;padding:14px 16px}
+.copia + .copia{margin-top:9px}
+.copia .v{min-width:0}
+.copia .v b{display:block;font-family:var(--display);font-weight:600;font-size:15.5px;overflow-wrap:anywhere}
+.copia .v span{display:block;font-size:12px;color:var(--suave);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
+.mini{flex:0 0 auto;background:transparent;border:1.5px solid var(--ambar);border-radius:8px;color:var(--ambar);font-family:var(--display);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;cursor:pointer;min-height:40px}
+.mini:active{background:var(--ambar);color:var(--ambar-escuro)}
+.mini:focus-visible{outline:2px solid var(--ambar);outline-offset:2px}
+
+/* ---------- checklist ---------- */
+.ck{display:flex;align-items:flex-start;gap:12px;padding:13px 2px;border-bottom:1px solid var(--linha);cursor:pointer}
+.ck:last-child{border-bottom:0}
+.ck input{width:22px;height:22px;flex:0 0 22px;margin:1px 0 0;border-radius:6px;border:1.5px solid var(--suave);background:var(--sup2);position:relative}
+.ck input:checked{background:var(--ambar);border-color:var(--ambar)}
+.ck input:checked::after{content:"";position:absolute;left:7px;top:3px;width:5px;height:10px;border:solid var(--ambar-escuro);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.ck span{font-family:var(--corpo);font-weight:300;font-size:14.5px;line-height:1.45;letter-spacing:0;text-transform:none;color:var(--texto)}
+.ck input:checked + span{color:var(--suave);text-decoration:line-through}
+
+/* ---------- natal ---------- */
+.natal{background:linear-gradient(140deg,#1F1B12,#171716);border:1px solid #3A3121;border-radius:12px;padding:16px}
+.natal .n{font-family:var(--display);font-weight:700;font-size:30px;line-height:1;font-variant-numeric:tabular-nums;color:var(--ambar)}
+.natal .t{font-size:13.5px;color:var(--suave);margin-top:5px}
+.barraP{height:6px;background:#2C2A24;border-radius:3px;margin-top:13px;overflow:hidden}
+.barraP i{display:block;height:100%;background:var(--ambar);border-radius:3px}
+
+/* ---------- separadores ---------- */
+nav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:rgba(12,12,11,.94);backdrop-filter:blur(12px);
+  border-top:1px solid var(--linha);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  padding-bottom:var(--fundo);
+  padding-left:var(--esq);padding-right:var(--dir);
+}
+nav button{
+  background:transparent;border:0;color:var(--suave);cursor:pointer;
+  font-family:var(--display);font-weight:600;font-size:10.5px;letter-spacing:.06em;
+  padding:10px 4px 11px;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:58px;
+}
+nav button .ic{font-size:19px;line-height:1}
+nav button[aria-selected="true"]{color:var(--ambar)}
+nav button:focus-visible{outline:2px solid var(--ambar);outline-offset:-3px}
+
+.rodape{font-size:12px;color:var(--suave);line-height:1.6;margin-top:6px}
+.aviso{background:var(--sup2);border-left:3px solid var(--ambar);border-radius:0 9px 9px 0;padding:13px 15px;font-size:13.5px;color:var(--suave)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <img src="/painel-icon-192.png" alt="">
+  <div>
+    <h1>Painel Lumi Lux</h1>
+    <div class="sub" id="dataHoje">—</div>
+  </div>
+  <div class="dir">
+    <div id="estadoRede">Sem rede</div>
+    <div>Amadora</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HOJE ============ -->
+  <section class="vista activa" id="v-hoje" role="tabpanel" aria-labelledby="t-hoje">
+
+    <div class="grupo">
+      <h2>Época de Natal</h2>
+      <div class="natal">
+        <div class="n" id="natalNum">—</div>
+        <div class="t" id="natalTexto">—</div>
+        <div class="barraP"><i id="natalBarra" style="width:0%"></i></div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>Abrir</h2>
+      <a class="btn" href="https://calendar.google.com/calendar/u/0/r/week" target="_blank" rel="noopener">
+        <span class="ic">▦</span>
+        <span class="tx">Agenda do estúdio<span>Google Calendar — reservas e disponibilidade</span></span>
+        <span class="seta">›</span>
+      </a>
+      <a class="btn" href="https://mail.google.com/mail/u/0/#search/subject%3A%22Pedido+de+reserva%22" target="_blank" rel="noopener">
+        <span class="ic">✉</span>
+        <span class="tx">Pedidos pelo site<span>Gmail — assunto “Pedido de reserva”</span></span>
+        <span class="seta">›</span>
+      </a>
+      <a class="btn" href="https://wa.me/447846229918" target="_blank" rel="noopener">
+        <span class="ic">◍</span>
+        <span class="tx">WhatsApp das reservas<span>+44 7846 229918</span></span>
+        <span class="seta">›</span>
+      </a>
+    </div>
+
+    <div class="grupo">
+      <h2>Antes da sessão</h2>
+      <div class="cartao" id="ckAntes"></div>
+    </div>
+
+    <div class="grupo">
+      <h2>Depois da sessão</h2>
+      <div class="cartao" id="ckDepois"></div>
+      <p class="rodape">As marcas ficam guardadas neste telemóvel. Carrega em repor quando começares uma sessão nova.</p>
+      <button class="mini" id="btnRepor" type="button" style="margin-top:10px">Repor listas</button>
+    </div>
+
+  </section>
+
+  <!-- ============ CÓDIGO ============ -->
+  <section class="vista" id="v-codigo" role="tabpanel" aria-labelledby="t-codigo">
+
+    <div class="grupo">
+      <h2>Código de acesso</h2>
+      <p class="aviso">Envia o código poucas horas antes da sessão, nunca no momento da reserva. Os códigos das portas ficam guardados neste telemóvel para não teres de os escrever de cada vez.</p>
+    </div>
+
+    <div class="grupo">
+      <h2>Portas</h2>
+      <div class="cartao">
+        <div class="par">
+          <div class="campo"><label for="cPredio">Porta do prédio</label><input id="cPredio" type="text" inputmode="numeric" autocomplete="off" placeholder="0000"></div>
+          <div class="campo"><label for="cEstudio">Porta do estúdio</label><input id="cEstudio" type="text" inputmode="numeric" autocomplete="off" placeholder="0000"></div>
+        </div>
+        <p class="nota" style="margin-top:0">Gera-os na app Smart Life e escreve-os aqui.</p>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>Cliente</h2>
+      <div class="cartao">
+        <div class="campo"><label for="cNome">Nome</label><input id="cNome" type="text" autocomplete="off" placeholder="Augusto"></div>
+        <div class="par">
+          <div class="campo"><label for="cHora">Hora da sessão</label><input id="cHora" type="time" value="17:00"></div>
+          <div class="campo"><label for="cTel">WhatsApp (opcional)</label><input id="cTel" type="tel" inputmode="tel" autocomplete="off" placeholder="351912345678"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>Mensagem</h2>
+      <div class="saida"><pre id="msgCodigo">—</pre></div>
+      <button class="btn forte" id="waCodigo" type="button" style="margin-top:10px">
+        <span class="ic">◍</span>
+        <span class="tx">Enviar por WhatsApp<span id="waCodigoSub">Escreve o número do cliente acima</span></span>
+        <span class="seta">›</span>
+      </button>
+      <button class="btn" id="copCodigo" type="button">
+        <span class="ic">⧉</span>
+        <span class="tx">Copiar mensagem<span>Para colar no email ou no SMS</span></span>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ============ RESERVA ============ -->
+  <section class="vista" id="v-reserva" role="tabpanel" aria-labelledby="t-reserva">
+
+    <div class="grupo">
+      <h2>Nova reserva</h2>
+      <div class="cartao">
+        <div class="campo"><label for="rNome">Nome do cliente</label><input id="rNome" type="text" autocomplete="off" placeholder="Nome"></div>
+        <div class="par">
+          <div class="campo"><label for="rData">Dia</label><input id="rData" type="date"></div>
+          <div class="campo"><label for="rHora">Início</label><input id="rHora" type="time" value="10:00"></div>
+        </div>
+        <div class="campo">
+          <label for="rDur">Duração</label>
+          <select id="rDur">
+            <option value="1|30">1 hora — 30 €</option>
+            <option value="2|50">2 horas — 50 €</option>
+            <option value="3|70">3 horas — 70 €</option>
+            <option value="4|90">4 horas — 90 €</option>
+            <option value="5|115">5 horas — 115 €</option>
+            <option value="6|140">6 horas — 140 €</option>
+            <option value="dia|200">Dia inteiro — 200 €</option>
+          </select>
+        </div>
+        <div class="campo" style="margin-bottom:0">
+          <label for="rTipo">Tipo de sessão</label>
+          <select id="rTipo">
+            <option>Moda</option>
+            <option>Sessão corporativa &amp; Retrato</option>
+            <option>Headshot &amp; Beauty shot</option>
+            <option>Lifestyle</option>
+            <option>Vídeo</option>
+            <option>Sessão de Natal</option>
+            <option>Noivado</option>
+            <option>Dia dos Namorados</option>
+            <option>Outros</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>Ocupa no calendário</h2>
+      <div class="cartao">
+        <div class="total" id="rTotal">30 €</div>
+        <div class="nota" id="rJanela" style="margin-top:10px">—</div>
+        <p class="nota">A reserva ocupa a hora contratada mais 30 minutos de arrumação. Marca esta janela inteira no calendário para ninguém reservar por cima.</p>
+      </div>
+      <a class="btn forte" id="btnCalendario" href="#" target="_blank" rel="noopener" style="margin-top:10px">
+        <span class="ic">▦</span>
+        <span class="tx">Marcar no Google Calendar<span>Abre já preenchido — só confirmas</span></span>
+        <span class="seta">›</span>
+      </a>
+    </div>
+
+    <div class="grupo">
+      <h2>Confirmação para o cliente</h2>
+      <div class="saida"><pre id="msgReserva">—</pre></div>
+      <button class="btn" id="copReserva" type="button" style="margin-top:10px">
+        <span class="ic">⧉</span>
+        <span class="tx">Copiar confirmação<span>Com os dados de pagamento</span></span>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ============ MAIS ============ -->
+  <section class="vista" id="v-mais" role="tabpanel" aria-labelledby="t-mais">
+
+    <div class="grupo">
+      <h2>Receber pagamento</h2>
+      <div class="copia">
+        <div class="v"><span>MB WAY</span><b>+351 938 053 006</b></div>
+        <button class="mini" data-copiar="+351938053006" type="button">Copiar</button>
+      </div>
+      <div class="copia">
+        <div class="v"><span>Revolut</span><b>@lumifocus</b></div>
+        <button class="mini" data-copiar="https://revolut.me/lumifocus" type="button">Copiar</button>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>Enviar aos clientes</h2>
+      <div class="copia">
+        <div class="v"><span>Pedir depoimento</span><b>lumilux-studio.vercel.app/testemunho</b></div>
+        <button class="mini" data-copiar="https://lumilux-studio.vercel.app/testemunho" type="button">Copiar</button>
+      </div>
+      <div class="copia">
+        <div class="v"><span>Morada do estúdio</span><b>Av. Cardoso Lopes 3, Amadora — cave</b></div>
+        <button class="mini" data-copiar="Av. Cardoso Lopes 3, Amadora — o estúdio fica na cave." type="button">Copiar</button>
+      </div>
+      <a class="btn" href="https://maps.google.com/?q=Av.+Cardoso+Lopes+3,+Amadora" target="_blank" rel="noopener" style="margin-top:9px">
+        <span class="ic">⌖</span>
+        <span class="tx">Abrir no mapa<span>Av. Cardoso Lopes 3, Amadora</span></span>
+        <span class="seta">›</span>
+      </a>
+    </div>
+
+    <div class="grupo">
+      <h2>Depoimentos no site</h2>
+      <div class="cartao" id="depCartao">
+        <h3 id="depNum">—</h3>
+        <p class="nota" id="depNomes">A carregar…</p>
+      </div>
+      <a class="btn" href="https://lumilux-studio.vercel.app/editor" target="_blank" rel="noopener" style="margin-top:9px">
+        <span class="ic">✎</span>
+        <span class="tx">Editor de depoimentos<span>Cola a mensagem do WhatsApp e gera o ficheiro</span></span>
+        <span class="seta">›</span>
+      </a>
+    </div>
+
+    <div class="grupo">
+      <h2>Gerir</h2>
+      <a class="btn" href="https://lumilux-studio.vercel.app" target="_blank" rel="noopener">
+        <span class="ic">◈</span><span class="tx">Site<span>lumilux-studio.vercel.app</span></span><span class="seta">›</span>
+      </a>
+      <a class="btn" href="https://github.com/lumifocus-coder/LUMI-LUX-STUDIO" target="_blank" rel="noopener">
+        <span class="ic">⌥</span><span class="tx">GitHub<span>Ficheiros do site</span></span><span class="seta">›</span>
+      </a>
+      <a class="btn" href="https://vercel.com/dashboard" target="_blank" rel="noopener">
+        <span class="ic">▲</span><span class="tx">Vercel<span>Publicação do site</span></span><span class="seta">›</span>
+      </a>
+      <a class="btn" href="https://web3forms.com/dashboard" target="_blank" rel="noopener">
+        <span class="ic">⌸</span><span class="tx">Web3Forms<span>Formulário de reservas</span></span><span class="seta">›</span>
+      </a>
+      <a class="btn" href="https://instagram.com/lumiluxstudio" target="_blank" rel="noopener">
+        <span class="ic">◉</span><span class="tx">Instagram<span>@lumiluxstudio</span></span><span class="seta">›</span>
+      </a>
+    </div>
+
+    <p class="rodape">
+      Lumi Lux — Creative Studio · 114 m² · Av. Cardoso Lopes 3, Amadora<br>
+      Reservas +44 7846 229918 · Gerente +351 938 053 006<br>
+      Painel privado. Funciona sem rede, exceto os links que abrem outras apps.
+    </p>
+
+  </section>
+
+</main>
+
+<nav role="tablist" aria-label="Secções do painel">
+  <button id="t-hoje" role="tab" aria-selected="true" aria-controls="v-hoje" data-vista="hoje"><span class="ic">◐</span>Hoje</button>
+  <button id="t-codigo" role="tab" aria-selected="false" aria-controls="v-codigo" data-vista="codigo"><span class="ic">⚿</span>Código</button>
+  <button id="t-reserva" role="tab" aria-selected="false" aria-controls="v-reserva" data-vista="reserva"><span class="ic">€</span>Reserva</button>
+  <button id="t-mais" role="tab" aria-selected="false" aria-controls="v-mais" data-vista="mais"><span class="ic">≡</span>Mais</button>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+
+  var LISBOA = 'Europe/Lisbon';
+  var MBWAY = '+351 938 053 006';
+  var agora = new Date();
+
+  /* ---------- guardar local ---------- */
+  function ler(k, omissao){
+    try { var v = localStorage.getItem('llx.' + k); return v === null ? omissao : v; }
+    catch(e){ return omissao; }
+  }
+  function guardar(k, v){
+    try { localStorage.setItem('llx.' + k, v); } catch(e){}
+  }
+
+  /* ---------- datas ---------- */
+  function fmt(d, o){ try { return new Intl.DateTimeFormat('pt-PT', o).format(d); } catch(e){ return ''; } }
+  function maiusc(s){ return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+  function dois(n){ return (n < 10 ? '0' : '') + n; }
+
+  document.getElementById('dataHoje').textContent =
+    maiusc(fmt(agora, {weekday:'long', day:'numeric', month:'long', timeZone:LISBOA}));
+
+  /* ---------- rede ---------- */
+  function rede(){
+    document.getElementById('estadoRede').className = navigator.onLine ? '' : 'on';
+  }
+  window.addEventListener('online', rede);
+  window.addEventListener('offline', rede);
+  rede();
+
+  /* ---------- separadores ---------- */
+  var botoes = Array.prototype.slice.call(document.querySelectorAll('nav button'));
+  function mostrar(nome){
+    botoes.forEach(function(b){
+      var activo = b.getAttribute('data-vista') === nome;
+      b.setAttribute('aria-selected', activo ? 'true' : 'false');
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.vista'), function(v){
+      v.classList.toggle('activa', v.id === 'v-' + nome);
+    });
+    guardar('vista', nome);
+    window.scrollTo(0, 0);
+  }
+  botoes.forEach(function(b){
+    b.addEventListener('click', function(){ mostrar(b.getAttribute('data-vista')); });
+  });
+  mostrar(ler('vista', 'hoje'));
+
+  /* ---------- copiar ---------- */
+  function copiar(texto, botao, rotuloOk){
+    var original = botao.textContent;
+    function fim(ok){
+      botao.textContent = ok ? (rotuloOk || 'Copiado') : 'Falhou';
+      setTimeout(function(){ botao.textContent = original; }, 1800);
+    }
+    try {
+      navigator.clipboard.writeText(texto).then(function(){ fim(true); }, function(){ reserva(); });
+    } catch(e){ reserva(); }
+    function reserva(){
+      try {
+        var t = document.createElement('textarea');
+        t.value = texto;
+        t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(t);
+        fim(ok);
+      } catch(err){ fim(false); }
+    }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-copiar]'), function(b){
+    b.addEventListener('click', function(){ copiar(b.getAttribute('data-copiar'), b); });
+  });
+
+  /* ---------- Natal ---------- */
+  (function(){
+    var ini = new Date(2026,10,2), fim = new Date(2026,11,24,23,59,59), dia = 86400000;
+    var faltam = Math.ceil((fim - agora)/dia);
+    var total = Math.round((fim - ini)/dia);
+    var feito = Math.min(100, Math.max(0, Math.round(((agora - ini)/(fim - ini))*100)));
+    var n = document.getElementById('natalNum'), t = document.getElementById('natalTexto'), b = document.getElementById('natalBarra');
+    if (agora < ini){
+      var faltamAte = Math.ceil((ini - agora)/dia);
+      n.textContent = faltamAte + (faltamAte === 1 ? ' dia' : ' dias');
+      t.textContent = 'Até montar o cenário de Natal, a 2 de novembro.';
+      b.style.width = '0%';
+    } else if (faltam > 0){
+      n.textContent = faltam + (faltam === 1 ? ' dia' : ' dias');
+      t.textContent = 'De época de Natal pela frente. Passaram ' + feito + '% dos ' + total + ' dias.';
+      b.style.width = feito + '%';
+    } else {
+      n.textContent = 'Terminou';
+      t.textContent = 'A época acabou. O cenário pode ser desmontado.';
+      b.style.width = '100%';
+    }
+  })();
+
+  /* ---------- checklists ---------- */
+  var LISTAS = {
+    ckAntes: [
+      'Luzes e fundos no lugar e a funcionar',
+      'Cenário de Natal completo e arrumado',
+      'Camarim e espelho limpos',
+      'Extensões e cabos presos ao chão',
+      'Aquecimento ligado meia hora antes',
+      'Código das portas gerado e enviado ao cliente'
+    ],
+    ckDepois: [
+      'Fundos recolhidos e enrolados',
+      'Cenário de Natal reposto como estava',
+      'Lixo fora e chão varrido',
+      'Luzes e aquecimento desligados',
+      'Portas do estúdio e do prédio fechadas',
+      'Fotografar qualquer estrago e avisar o cliente'
+    ]
+  };
+  Object.keys(LISTAS).forEach(function(id){
+    var alvo = document.getElementById(id);
+    LISTAS[id].forEach(function(texto, i){
+      var chave = id + '.' + i;
+      var l = document.createElement('label'); l.className = 'ck';
+      var c = document.createElement('input'); c.type = 'checkbox'; c.id = chave;
+      c.checked = ler(chave, '0') === '1';
+      var s = document.createElement('span'); s.textContent = texto;
+      c.addEventListener('change', function(){ guardar(chave, c.checked ? '1' : '0'); });
+      l.appendChild(c); l.appendChild(s); alvo.appendChild(l);
+    });
+  });
+  document.getElementById('btnRepor').addEventListener('click', function(){
+    Object.keys(LISTAS).forEach(function(id){
+      LISTAS[id].forEach(function(_, i){
+        guardar(id + '.' + i, '0');
+        var c = document.getElementById(id + '.' + i);
+        if (c) c.checked = false;
+      });
+    });
+    var b = this; b.textContent = 'Reposto';
+    setTimeout(function(){ b.textContent = 'Repor listas'; }, 1600);
+  });
+
+  /* ---------- código de acesso ---------- */
+  var cPredio = document.getElementById('cPredio'),
+      cEstudio = document.getElementById('cEstudio'),
+      cNome = document.getElementById('cNome'),
+      cHora = document.getElementById('cHora'),
+      cTel = document.getElementById('cTel'),
+      msgCodigo = document.getElementById('msgCodigo');
+
+  cPredio.value = ler('cPredio', '');
+  cEstudio.value = ler('cEstudio', '');
+
+  function textoCodigo(){
+    var nome = cNome.value.trim();
+    var hora = cHora.value || '';
+    var p = cPredio.value.trim(), e = cEstudio.value.trim();
+    var l = [];
+    l.push('Olá' + (nome ? ' ' + nome : '') + ',');
+    l.push('');
+    l.push('Aqui fica o acesso ao estúdio para a tua sessão' + (hora ? ' das ' + hora : '') + '.');
+    l.push('');
+    l.push('Porta do prédio: ' + (p || '— por definir —'));
+    l.push('Porta do estúdio: ' + (e || '— por definir —'));
+    l.push('');
+    l.push('Os códigos são válidos apenas durante a tua reserva.');
+    l.push('Morada: Av. Cardoso Lopes 3, Amadora — o estúdio fica na cave.');
+    l.push('');
+    l.push('Qualquer coisa, estou ao teu dispor neste número.');
+    l.push('Boa sessão!');
+    l.push('Lumi Lux — Creative Studio');
+    return l.join('\n');
+  }
+  function actualizaCodigo(){
+    msgCodigo.textContent = textoCodigo();
+    var num = cTel.value.replace(/[^0-9]/g, '');
+    document.getElementById('waCodigoSub').textContent =
+      num ? ('Para +' + num) : 'Escreve o número do cliente acima';
+  }
+  [cPredio, cEstudio, cNome, cHora, cTel].forEach(function(el){
+    el.addEventListener('input', function(){
+      if (el === cPredio || el === cEstudio) guardar(el.id, el.value);
+      actualizaCodigo();
+    });
+  });
+  actualizaCodigo();
+
+  document.getElementById('waCodigo').addEventListener('click', function(){
+    var num = cTel.value.replace(/[^0-9]/g, '');
+    var url = 'https://wa.me/' + (num || '') + '?text=' + encodeURIComponent(textoCodigo());
+    window.open(url, '_blank', 'noopener');
+  });
+  document.getElementById('copCodigo').addEventListener('click', function(){
+    var tx = this.querySelector('.tx');
+    var antes = tx.firstChild.nodeValue;
+    copiar(textoCodigo(), {
+      get textContent(){ return antes; },
+      set textContent(v){ tx.firstChild.nodeValue = v; }
+    });
+  });
+
+  /* ---------- reserva ---------- */
+  var rNome = document.getElementById('rNome'),
+      rData = document.getElementById('rData'),
+      rHora = document.getElementById('rHora'),
+      rDur = document.getElementById('rDur'),
+      rTipo = document.getElementById('rTipo'),
+      rTotal = document.getElementById('rTotal'),
+      rJanela = document.getElementById('rJanela'),
+      msgReserva = document.getElementById('msgReserva');
+
+  rData.value = agora.getFullYear() + '-' + dois(agora.getMonth()+1) + '-' + dois(agora.getDate());
+
+  function dados(){
+    var p = rDur.value.split('|');
+    var horas = p[0] === 'dia' ? 8 : parseInt(p[0], 10);
+    var preco = parseInt(p[1], 10);
+    var rotulo = rDur.options[rDur.selectedIndex].text;
+    var hm = (rHora.value || '10:00').split(':');
+    var d = rData.value ? rData.value.split('-') : null;
+    var inicio = d ? new Date(+d[0], +d[1]-1, +d[2], +hm[0], +hm[1]) : null;
+    var fim = inicio ? new Date(inicio.getTime() + (horas*60 + 30)*60000) : null;
+    return {horas:horas, preco:preco, rotulo:rotulo, inicio:inicio, fim:fim};
+  }
+  function hhmm(d){ return dois(d.getHours()) + ':' + dois(d.getMinutes()); }
+  function diaLegivel(d){
+    return maiusc(fmt(d, {weekday:'long', day:'numeric', month:'long', timeZone:LISBOA}));
+  }
+  function gcal(d){ // formato flutuante, sem fuso
+    return d.getFullYear() + dois(d.getMonth()+1) + dois(d.getDate()) + 'T' +
+           dois(d.getHours()) + dois(d.getMinutes()) + '00';
+  }
+
+  function textoReserva(x){
+    var nome = rNome.value.trim();
+    var l = [];
+    l.push('Olá' + (nome ? ' ' + nome : '') + ', a tua reserva está registada:');
+    l.push('');
+    if (x.inicio) l.push('Dia: ' + diaLegivel(x.inicio));
+    if (x.inicio) l.push('Início: ' + hhmm(x.inicio));
+    l.push('Duração: ' + x.rotulo);
+    l.push('Sessão: ' + rTipo.value);
+    l.push('Total: ' + x.preco + ' €');
+    l.push('');
+    l.push('A reserva inclui 30 minutos extra para arrumares o espaço antes de saíres.');
+    l.push('');
+    l.push('Para confirmar, o pagamento pode ser feito por MB WAY para ' + MBWAY + ' ou por Revolut para @lumifocus.');
+    l.push('');
+    l.push('Os códigos de acesso às portas são enviados algumas horas antes da sessão.');
+    l.push('Morada: Av. Cardoso Lopes 3, Amadora — o estúdio fica na cave.');
+    l.push('');
+    l.push('Lumi Lux — Creative Studio');
+    return l.join('\n');
+  }
+
+  function actualizaReserva(){
+    var x = dados();
+    rTotal.textContent = x.preco + ' €';
+    if (x.inicio && x.fim){
+      rJanela.textContent = diaLegivel(x.inicio) + ', das ' + hhmm(x.inicio) + ' às ' + hhmm(x.fim) +
+        ' — ' + x.horas + (x.horas === 1 ? ' hora' : ' horas') + ' mais 30 minutos de arrumação.';
+      var titulo = 'RESERVADO — ' + (rNome.value.trim() || 'Cliente') + ' · ' + rTipo.value;
+      var det = 'Duração contratada: ' + x.rotulo + '\nTotal: ' + x.preco + ' EUR' +
+                '\n\nA janela inclui 30 minutos de arrumação.';
+      document.getElementById('btnCalendario').href =
+        'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(titulo) +
+        '&dates=' + gcal(x.inicio) + '/' + gcal(x.fim) +
+        '&ctz=Europe/Lisbon' +
+        '&location=' + encodeURIComponent('Lumi Lux — Creative Studio, Av. Cardoso Lopes 3, Amadora') +
+        '&details=' + encodeURIComponent(det);
+    } else {
+      rJanela.textContent = 'Escolhe o dia e a hora.';
+    }
+    msgReserva.textContent = textoReserva(x);
+  }
+  [rNome, rData, rHora, rDur, rTipo].forEach(function(el){
+    el.addEventListener('input', actualizaReserva);
+    el.addEventListener('change', actualizaReserva);
+  });
+  actualizaReserva();
+
+  document.getElementById('copReserva').addEventListener('click', function(){
+    var tx = this.querySelector('.tx');
+    var antes = tx.firstChild.nodeValue;
+    copiar(textoReserva(dados()), {
+      get textContent(){ return antes; },
+      set textContent(v){ tx.firstChild.nodeValue = v; }
+    });
+  });
+
+  /* ---------- depoimentos ---------- */
+  (function(){
+    var num = document.getElementById('depNum'), nomes = document.getElementById('depNomes');
+    function pinta(d){
+      var itens = (d && d.itens) || [];
+      num.textContent = itens.length + (itens.length === 1 ? ' depoimento' : ' depoimentos');
+      nomes.textContent = itens.length
+        ? itens.map(function(i){ return i.nome; }).join(' · ')
+        : 'Ainda nenhum publicado no site.';
+      try { guardar('dep', JSON.stringify(d)); } catch(e){}
+    }
+    var guardados = ler('dep', '');
+    if (guardados){ try { pinta(JSON.parse(guardados)); } catch(e){} }
+    fetch('/depoimentos.json', {cache:'no-cache'})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(d){ if (d) pinta(d); })
+      .catch(function(){
+        if (!guardados){ num.textContent = '—'; nomes.textContent = 'Sem rede para verificar.'; }
+      });
+  })();
+
+  /* ---------- service worker ---------- */
+  if ('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('/painel-sw.js').catch(function(){});
+    });
+  }
+
+})();
+</script>
+</body>
+</html>
