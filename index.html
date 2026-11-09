@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Cormorant+Garamond:wght@300;400&amp;family=Jost:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 
   body{margin:0;-webkit-font-smoothing:antialiased;}
@@ -33,6 +33,52 @@
   .llx-btn-outline-light:hover{background:#FAFAF6;color:#0F0F0E;border-color:#FAFAF6;}
   .llx-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;}
   .llx-slide.on{opacity:1;}
+  /* Capa: durante o Natal, o cenario aparece inteiro — a fotografia nunca e cortada. */
+  :root{--llx-cab:71px;}
+  .llx-capa{position:relative;width:100%;min-height:calc(100vh - var(--llx-cab));background:#13100C;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;}
+  .llx-capa-media{position:absolute;inset:0;}
+  .llx-capa-painel{position:relative;z-index:2;height:100%;max-width:1400px;width:100%;margin:0 auto;padding:0 40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;color:#FAFAF6;}
+  .llx-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+  .llx-slide.on{opacity:1;}
+  .llx-slide img{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .llx-frente{object-fit:cover;}
+  .llx-fundo{display:none;object-fit:cover;filter:blur(34px) saturate(.85) brightness(.40);transform:scale(1.14);}
+
+  /* epoca de Natal: fotografia inteira (contain) sobre um fundo desfocado dela propria */
+  .llx-capa.natal{display:flex;flex-direction:column;min-height:calc(100vh - var(--llx-cab));}
+  .llx-capa.natal .llx-capa-painel{order:1;height:auto;justify-content:flex-start;padding:clamp(20px,5vw,42px) 24px 12px;flex:0 0 auto;}
+  .llx-capa.natal .llx-capa-media{order:2;position:relative;inset:auto;flex:1 1 auto;min-height:52vh;}
+  .llx-capa.natal .llx-frente{object-fit:contain;}
+  .llx-capa.natal .llx-fundo{display:block;}
+  @media (min-width:980px){
+    .llx-capa.natal{display:grid;grid-template-columns:minmax(0,45fr) minmax(0,55fr);height:calc(100vh - var(--llx-cab));min-height:620px;max-height:940px;}
+    .llx-capa.natal .llx-capa-painel{grid-area:1/1;padding:0 clamp(30px,3.4vw,64px);justify-content:center;max-width:none;margin:0;}
+    .llx-capa.natal .llx-capa-media{grid-area:1/2;min-height:0;}
+    .llx-capa.natal .llx-natal-capa{align-items:flex-start;text-align:left;margin:0;max-width:min(460px,100%);padding-bottom:0;}
+    .llx-capa.natal .llx-natal-capa h1{align-items:flex-start;}
+    .llx-capa.natal .llx-natal-acoes,.llx-capa.natal #llx-hero-pontos-natal{justify-content:flex-start!important;}
+    .llx-capa.natal .llx-fusao{display:block;}
+  }
+  .llx-capa.natal .llx-descer{display:none!important;}
+  .llx-capa.natal .llx-sidelabel{display:none;}
+  .llx-fusao{display:none;position:absolute;left:-1px;top:0;bottom:0;width:120px;z-index:1;background:linear-gradient(90deg,#13100C,rgba(19,16,12,0));pointer-events:none;}
+  .llx-natal-capa{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;max-width:760px;margin:0 auto;padding-bottom:60px;}
+  .llx-natal-serif{font-family:'Cormorant Garamond','Times New Roman',serif;font-weight:300;color:#FBF6EC;line-height:.92;letter-spacing:.005em;margin:0;text-shadow:0 2px 40px rgba(0,0,0,.45);}
+  .llx-natal-1{font-size:clamp(58px,10.5vw,132px);}
+  .llx-natal-2{font-size:clamp(34px,6vw,76px);margin-top:-2px;}
+  .llx-natal-sub{font-family:'Jost',sans-serif;font-size:clamp(11px,1.25vw,14px);letter-spacing:.34em;text-transform:uppercase;color:#FBF6EC;font-weight:400;}
+  .llx-natal-rule{width:62px;height:1px;background:rgba(251,246,236,.5);}
+  .llx-natal-marca{font-family:'Archivo',sans-serif;font-weight:500;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(251,246,236,.52);margin-top:4px;}
+  .llx-natal-marca b{font-weight:600;color:rgba(251,246,236,.78);}
+  .llx-natal-linha{font-family:'Jost',sans-serif;font-size:clamp(10px,1.05vw,12.5px);letter-spacing:.26em;text-transform:uppercase;color:rgba(251,246,236,.74);line-height:2;max-width:36ch;}
+  .llx-oculto{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+  @media (max-width:430px){.llx-natal-sub{letter-spacing:.22em;}.llx-natal-linha{letter-spacing:.2em;}}
+  .llx-natal-estrela{opacity:.92;}
+  @media (max-width:760px){.llx-natal-capa{gap:11px;padding-bottom:0;}
+    .llx-natal-marca{display:none;}
+    .llx-natal-1{font-size:clamp(50px,13vw,96px);}
+    .llx-natal-capa .llx-btn-light,.llx-natal-capa .llx-btn-outline-light{padding:14px 24px!important;font-size:11px!important;}
+    .llx-natal-capa .llx-natal-acoes{padding-top:4px!important;gap:10px!important;}}
   .llx-pontos{display:flex;gap:7px;margin-top:4px;}
   .llx-ponto{background:transparent;border:0;padding:12px 2px;cursor:pointer;line-height:0;}
   .llx-ponto i{display:block;width:32px;height:3px;border-radius:999px;background:rgba(250,250,246,.38);transition:background .35s ease;}
@@ -152,21 +198,65 @@
   </div>
 
   <!-- HERO -->
-  <div id="topo" style="position:relative;width:100%;height:100vh;min-height:720px;max-height:1000px;background:#0F0F0E;overflow:hidden;box-sizing:border-box;">
+  <div id="topo" class="llx-capa natal">
 
-    <div id="llx-hero-slides" style="position:absolute;inset:0;">
-      <img class="llx-slide on" src="natal-1.webp" alt="Cenário de Natal montado na sala do Lumi Lux — Creative Studio" style="object-position:center 42%;">
-      <img class="llx-slide" src="hero-lounge.webp" alt="Sala de estar do Lumi Lux — Creative Studio" loading="lazy" style="object-position:center 32%;">
-      <img class="llx-slide" src="estudio-principal.webp" alt="Estúdio principal do Lumi Lux com fundo branco e iluminação montada" loading="lazy" style="object-position:center 46%;">
+    <div class="llx-capa-media">
+      <div id="llx-hero-slides" style="position:absolute;inset:0;">
+        <div class="llx-slide" data-epoca="natal" data-rotulo="Cenário de Natal">
+          <img class="llx-fundo" src="natal-1.webp" alt="" aria-hidden="true">
+          <img class="llx-frente" src="natal-1.webp" alt="Cenário de Natal da sala do Lumi Lux — Creative Studio" style="object-position:center center;">
+        </div>
+        <div class="llx-slide" data-rotulo="Sala de estar">
+          <img class="llx-fundo" src="hero-lounge.webp" alt="" aria-hidden="true" loading="lazy">
+          <img class="llx-frente" src="hero-lounge.webp" alt="Sala de estar do Lumi Lux — Creative Studio" loading="lazy" style="object-position:center 32%;">
+        </div>
+      </div>
+
+      <div class="llx-fusao" aria-hidden="true"></div>
+
+      <div id="llx-veu-natal" style="position:absolute;inset:0;z-index:1;background:radial-gradient(78% 70% at 50% 46%, rgba(10,8,6,0), rgba(10,8,6,.34) 78%, rgba(10,8,6,.58) 100%);"></div>
+      <div id="llx-veu-normal" hidden style="position:absolute;inset:0;z-index:1;display:none;background:linear-gradient(100deg, rgba(12,12,11,.95) 0%, rgba(12,12,11,.86) 38%, rgba(12,12,11,.42) 78%, rgba(12,12,11,.55) 100%);"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;height:160px;z-index:1;background:linear-gradient(to top, rgba(14,11,8,.82), rgba(14,11,8,0));"></div>
+      <div id="llx-brilho-normal" hidden style="position:absolute;inset:0;z-index:1;display:none;background:radial-gradient(58% 52% at 80% 16%, rgba(255,216,157,.30), rgba(255,216,157,0) 72%);"></div>
     </div>
-    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(12,12,11,.95) 0%, rgba(12,12,11,.86) 38%, rgba(12,12,11,.42) 78%, rgba(12,12,11,.55) 100%);"></div>
-    <div style="position:absolute;inset:0;background:radial-gradient(58% 52% at 80% 16%, rgba(255,216,157,.30), rgba(255,216,157,0) 72%);"></div>
-    <div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to top, rgba(12,12,11,.92), rgba(12,12,11,0));"></div>
 
-    <div class="llx-sidelabel" aria-hidden="true" style="position:absolute;right:26px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:10px;letter-spacing:.44em;text-transform:uppercase;color:rgba(250,250,246,.42);white-space:nowrap;">Lumi Lux — Creative Studio</div>
+    <div class="llx-descer" style="position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;justify-content:center;padding:0 40px 30px;box-sizing:border-box;">
+      <a href="#sobre" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(250,250,246,.65);font-size:10px;letter-spacing:.22em;text-transform:uppercase;">
+        <span><span data-t="hero.scroll">Descer</span></span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.4" style="opacity:.65;"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+      </a>
+    </div>
 
-    <div style="position:relative;z-index:2;height:100%;max-width:1400px;margin:0 auto;padding:0 40px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;color:#FAFAF6;">
-      <div style="display:flex;flex-direction:column;gap:30px;max-width:1000px;padding-bottom:70px;">
+    <div class="llx-sidelabel" aria-hidden="true" style="position:absolute;right:20px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:10px;letter-spacing:.44em;text-transform:uppercase;color:rgba(250,250,246,.34);white-space:nowrap;z-index:3;">Lumi Lux — Creative Studio</div>
+
+    <div class="llx-capa-painel">
+
+      <div id="llx-hero-natal" class="llx-natal-capa">
+
+        <svg class="llx-natal-estrela" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0.5 L13.5 10.5 L23.5 12 L13.5 13.5 L12 23.5 L10.5 13.5 L0.5 12 L10.5 10.5 Z" fill="#F5C87A"></path></svg>
+
+        <h1 style="margin:0;display:flex;flex-direction:column;align-items:center;">
+          <span class="llx-natal-serif llx-natal-1" data-t="hero.nTitulo">Natal</span>
+          <span class="llx-natal-serif llx-natal-2" style="margin-top:-16px;">2026</span>
+          <span class="llx-oculto" data-t="hero.nOculto">no Lumi Lux — estúdio de fotografia e vídeo para alugar na Amadora</span>
+        </h1>
+
+        <div class="llx-natal-sub"><span data-t="hero.nSub">O cenário está pronto</span></div>
+        <div class="llx-natal-rule"></div>
+        <div class="llx-natal-linha"><span data-t="hero.nLinha">Para fotógrafos e criadores de conteúdo</span></div>
+
+        <div class="llx-natal-acoes" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;padding-top:10px;">
+          <a href="#reservar" class="llx-btn-light" style="padding:17px 36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;"><span data-t="hero.nBook">Reservar sessão de Natal</span></a>
+          <a href="#espacos" class="llx-btn-outline-light" style="padding:17px 36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;"><span data-t="hero.viewSpace">Explorar o espaço</span></a>
+        </div>
+
+        <div class="llx-pontos" id="llx-hero-pontos-natal" role="group" aria-label="Fotografias do estúdio" style="justify-content:center;"></div>
+
+        <div class="llx-natal-marca"><b>Lumi Lux</b> · Creative Studio · Amadora</div>
+
+      </div>
+
+      <div id="llx-hero-normal" hidden style="display:none;flex-direction:column;gap:30px;max-width:1000px;padding-bottom:70px;">
 
         <div style="display:flex;align-items:center;gap:12px;">
           <span style="width:7px;height:7px;border-radius:999px;background:#F5C87A;display:block;"></span>
@@ -182,20 +272,10 @@
           <a href="#espacos" class="llx-btn-outline-light" style="padding:17px 36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;"><span data-t="hero.viewSpace">Explorar o espaço</span></a>
         </div>
 
-        <div class="llx-pontos" id="llx-hero-pontos" role="group" aria-label="Fotografias do estúdio">
-          <button class="llx-ponto" type="button" aria-current="true" aria-label="Cenário de Natal"><i></i></button>
-          <button class="llx-ponto" type="button" aria-current="false" aria-label="Sala de estar"><i></i></button>
-          <button class="llx-ponto" type="button" aria-current="false" aria-label="Estúdio principal"><i></i></button>
-        </div>
+        <div class="llx-pontos" id="llx-hero-pontos" role="group" aria-label="Fotografias do estúdio"></div>
 
       </div>
-    </div>
 
-    <div style="position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;justify-content:center;padding:0 40px 30px;box-sizing:border-box;">
-      <a href="#sobre" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(250,250,246,.65);font-size:10px;letter-spacing:.22em;text-transform:uppercase;">
-        <span><span data-t="hero.scroll">Descer</span></span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FAFAF6" stroke-width="1.4" style="opacity:.65;"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
-      </a>
     </div>
 
   </div>
@@ -801,7 +881,7 @@
 const TRANSLATIONS = {
   pt: {
     nav: { about: 'Sobre', space: 'Espaço', services: 'Serviços', prices: 'Preços', contact: 'Contacto', book: 'Reservar', igLabel: 'Instagram do Lumi Lux — abre em nova janela', igCta: 'Ver no Instagram' },
-    hero: { eyebrow: 'Creative Studio', title: 'UM ESPAÇO PARA A TUA CRIATIVIDADE.', subtitle: 'Aluga o nosso estúdio de fotografia e vídeo na Amadora e dá vida às tuas ideias. Para fotógrafos, videomakers e criadores de conteúdo que procuram um espaço versátil para as suas produções.', book: 'Reservar estúdio', viewSpace: 'Explorar o espaço', scroll: 'Descer' },
+    hero: { eyebrow: 'Creative Studio', title: 'UM ESPAÇO PARA A TUA CRIATIVIDADE.', subtitle: 'Aluga o nosso estúdio de fotografia e vídeo na Amadora e dá vida às tuas ideias. Para fotógrafos, videomakers e criadores de conteúdo que procuram um espaço versátil para as suas produções.', book: 'Reservar estúdio', viewSpace: 'Explorar o espaço', scroll: 'Descer', nTitulo: 'Natal', nSub: 'O cenário está pronto', nLinha: 'Para fotógrafos e criadores de conteúdo', nBook: 'Reservar sessão de Natal', nOculto: 'no Lumi Lux — estúdio de fotografia e vídeo para alugar na Amadora' },
     natal: { title: 'Cenário de Natal montado no estúdio', body: 'De 2 de novembro a 24 de dezembro, o cenário de Natal fica montado e disponível em qualquer reserva, sem custo extra. Usa-o como quiseres — só pedimos que deixes tudo no lugar para quem vem a seguir.', cta: 'Reservar sessão de Natal' },
     quickFacts: { area: '114 m²', areaLabel: 'área livre', open: 'Aberto', openLabel: 'sem divisórias', days: '7 dias', daysLabel: 'por semana, com agendamento', price: '30 €', priceLabel: 'a partir de / hora' },
     sobre: { title: 'Lumi Lux', p1: 'O Lumi Lux é um estúdio de fotografia e vídeo na Amadora, a dois minutos a pé da estação e a poucos minutos do centro de Lisboa.', p2: 'São 114 m² de planta aberta, sem divisórias, com iluminação profissional permanentemente montada. Por ser um espaço em cave, a luz é inteiramente controlada — o resultado é o mesmo às nove da manhã ou às oito da noite, faça sol ou faça chuva.', p3: 'O estúdio funciona por marcação, sete dias por semana, com check-in autónomo. A reserva dá acesso ao espaço e a todo o equipamento, sem custos adicionais.' },
@@ -834,7 +914,7 @@ const TRANSLATIONS = {
   },
   en: {
     nav: { about: 'About', space: 'Space', services: 'Services', prices: 'Pricing', contact: 'Contact', book: 'Book', igLabel: 'Lumi Lux on Instagram — opens in a new window', igCta: 'See on Instagram' },
-    hero: { eyebrow: 'Creative Studio', title: 'A SPACE FOR YOUR CREATIVITY.', subtitle: 'Rent our photography and video studio in Amadora and bring your ideas to life. For photographers, videomakers and content creators looking for a versatile space for their productions.', book: 'Book the studio', viewSpace: 'Explore the space', scroll: 'Scroll' },
+    hero: { eyebrow: 'Creative Studio', title: 'A SPACE FOR YOUR CREATIVITY.', subtitle: 'Rent our photography and video studio in Amadora and bring your ideas to life. For photographers, videomakers and content creators looking for a versatile space for their productions.', book: 'Book the studio', viewSpace: 'Explore the space', scroll: 'Scroll', nTitulo: 'Christmas', nSub: 'The set is ready', nLinha: 'For photographers and content creators', nBook: 'Book a Christmas session', nOculto: 'at Lumi Lux — photography and video studio for rent in Amadora' },
     natal: { title: 'Christmas set up in the studio', body: 'From 2 November to 24 December the Christmas set stays up and is included with any booking, at no extra cost. Use it however you like — we only ask that you leave everything as you found it for the next shoot.', cta: 'Book a Christmas session' },
     quickFacts: { area: '114 m²', areaLabel: 'open floor area', open: 'Open plan', openLabel: 'no partitions', days: '7 days', daysLabel: 'a week, by appointment', price: '€30', priceLabel: 'starting price / hour' },
     sobre: { title: 'Lumi Lux', p1: 'Lumi Lux is a photography and video studio in Amadora, a two-minute walk from the station and a short ride from central Lisbon.', p2: 'It is 114 m² of open floor with no partitions, and professional lighting permanently rigged. Because the space sits below ground, the light is entirely under your control — the result is the same at nine in the morning or eight at night, rain or shine.', p3: 'The studio runs by appointment, seven days a week, with self check-in. Your booking covers the space and all of the equipment, at no extra cost.' },
@@ -1199,42 +1279,101 @@ const TRANSLATIONS = {
 })();
 </script>
 <script>
-/* Slideshow da capa — passa sozinho, para quando o rato esta em cima
-   ou quando o separador nao esta visivel. */
+/* Capa: lettering de Natal ate 24/12/2026 e, a partir de 25/12, volta
+   sozinha a capa normal. O slideshow passa as fotos nos dois casos. */
 (function () {
   var caixa = document.getElementById('llx-hero-slides');
-  var barra = document.getElementById('llx-hero-pontos');
-  if (!caixa || !barra) return;
+  if (!caixa) return;
+
+  /* a capa ocupa o ecra menos a barra de cima, qualquer que seja a altura dela */
+  (function alturaDaCapa() {
+    function medir() {
+      var t = document.getElementById('topo');
+      if (!t) return;
+      var topo = t.getBoundingClientRect().top + (window.pageYOffset || 0);
+      document.documentElement.style.setProperty('--llx-cab', Math.max(0, Math.round(topo)) + 'px');
+    }
+    medir();
+    window.addEventListener('resize', medir);
+    window.addEventListener('load', medir);
+  })();
+
+  var FIM_NATAL = Date.UTC(2026, 11, 25, 0, 0, 0);
+  var epocaNatal = Date.now() < FIM_NATAL;
+
+  var blocoNatal  = document.getElementById('llx-hero-natal');
+  var blocoNormal = document.getElementById('llx-hero-normal');
+  var veuNatal    = document.getElementById('llx-veu-natal');
+  var veuNormal   = document.getElementById('llx-veu-normal');
+
+  function liga(el, mostra, display) {
+    if (!el) return;
+    el.hidden = !mostra;
+    el.style.display = mostra ? display : 'none';
+  }
+
+  function retirar(el) { if (el && el.parentNode) el.parentNode.removeChild(el); }
+
+  var capa = document.getElementById('topo');
+  var brilho = document.getElementById('llx-brilho-normal');
+
+  if (epocaNatal) {
+    retirar(blocoNormal);
+    retirar(veuNormal);
+    retirar(brilho);
+  } else {
+    if (capa) capa.classList.remove('natal');
+    liga(blocoNormal, true, 'flex');
+    liga(veuNormal, true, 'block');
+    liga(brilho, true, 'block');
+    retirar(blocoNatal);
+    retirar(veuNatal);
+    retirar(caixa.querySelector('[data-epoca="natal"]'));
+  }
+
   var fotos = caixa.querySelectorAll('.llx-slide');
-  var pontos = barra.querySelectorAll('.llx-ponto');
-  if (fotos.length < 2) return;
+  if (!fotos.length) return;
+  fotos[0].classList.add('on');
+
+  var barra = document.getElementById(epocaNatal ? 'llx-hero-pontos-natal' : 'llx-hero-pontos');
+  if (!barra) return;
 
   var actual = 0, timer = null, parado = false;
   var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pontos = [];
+
+  if (fotos.length > 1) {
+    for (var k = 0; k < fotos.length; k++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'llx-ponto';
+      b.setAttribute('aria-current', k === 0 ? 'true' : 'false');
+      b.setAttribute('aria-label', fotos[k].getAttribute('data-rotulo') || ('Foto ' + (k + 1)));
+      b.innerHTML = '<i></i>';
+      (function (i) {
+        b.addEventListener('click', function () { mostrar(i); para(); arranca(); });
+      })(k);
+      barra.appendChild(b);
+      pontos.push(b);
+    }
+  }
 
   function mostrar(i) {
     actual = (i + fotos.length) % fotos.length;
     for (var n = 0; n < fotos.length; n++) {
       fotos[n].classList.toggle('on', n === actual);
-      pontos[n].setAttribute('aria-current', n === actual ? 'true' : 'false');
+      if (pontos[n]) pontos[n].setAttribute('aria-current', n === actual ? 'true' : 'false');
     }
   }
   function arranca() {
-    if (calmo || parado || timer) return;
+    if (calmo || parado || timer || fotos.length < 2) return;
     timer = setInterval(function () { mostrar(actual + 1); }, 6500);
   }
   function para() { if (timer) { clearInterval(timer); timer = null; } }
 
-  for (var k = 0; k < pontos.length; k++) {
-    (function (i) {
-      pontos[i].addEventListener('click', function () {
-        mostrar(i); para(); arranca();
-      });
-    })(k);
-  }
-
-  caixa.parentNode.addEventListener('mouseenter', function () { parado = true; para(); });
-  caixa.parentNode.addEventListener('mouseleave', function () { parado = false; arranca(); });
+  var palco = caixa.parentNode;
+  palco.addEventListener('mouseenter', function () { parado = true; para(); });
+  palco.addEventListener('mouseleave', function () { parado = false; arranca(); });
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) { para(); } else { arranca(); }
   });
