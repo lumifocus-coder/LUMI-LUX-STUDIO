@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lumi Lux — Creative Studio">
 <meta property="og:description" content="Estúdio de fotografia e vídeo para alugar na Amadora. Reserva por hora ou dia inteiro.">
-<meta property="og:image" content="https://lumilux-studio.vercel.app/hero-lounge.webp">
+<meta property="og:image" content="https://lumilux-studio.vercel.app/natal-og.webp">
 <meta property="og:url" content="https://lumilux-studio.vercel.app/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -31,6 +31,15 @@
   .llx-btn-outline:hover{background:#0F0F0E;color:#FAFAF6;}
   .llx-btn-outline-light{background:transparent;color:#FAFAF6;border:1px solid rgba(250,250,246,.55);border-radius:999px;transition:background .2s ease,color .2s ease,border-color .2s ease;}
   .llx-btn-outline-light:hover{background:#FAFAF6;color:#0F0F0E;border-color:#FAFAF6;}
+  .llx-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;}
+  .llx-slide.on{opacity:1;}
+  .llx-pontos{display:flex;gap:7px;margin-top:4px;}
+  .llx-ponto{background:transparent;border:0;padding:12px 2px;cursor:pointer;line-height:0;}
+  .llx-ponto i{display:block;width:32px;height:3px;border-radius:999px;background:rgba(250,250,246,.38);transition:background .35s ease;}
+  .llx-ponto:hover i{background:rgba(250,250,246,.7);}
+  .llx-ponto[aria-current="true"] i{background:#F5C87A;}
+  .llx-ponto:focus-visible{outline:2px solid #F5C87A;outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){.llx-slide{transition:none;}}
   .llx-btn-light{background:#FAFAF6;color:#0F0F0E;border:1px solid #FAFAF6;border-radius:999px;transition:transform .2s ease,opacity .2s ease;}
   .llx-btn-light:hover{opacity:.9;transform:translateY(-1px);}
   .llx-card{transition:transform .3s ease;}
@@ -145,7 +154,11 @@
   <!-- HERO -->
   <div id="topo" style="position:relative;width:100%;height:100vh;min-height:720px;max-height:1000px;background:#0F0F0E;overflow:hidden;box-sizing:border-box;">
 
-    <img src="hero-lounge.webp" alt="Sala de estar do Lumi Lux — Creative Studio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;">
+    <div id="llx-hero-slides" style="position:absolute;inset:0;">
+      <img class="llx-slide on" src="natal-1.webp" alt="Cenário de Natal montado na sala do Lumi Lux — Creative Studio" style="object-position:center 42%;">
+      <img class="llx-slide" src="hero-lounge.webp" alt="Sala de estar do Lumi Lux — Creative Studio" loading="lazy" style="object-position:center 32%;">
+      <img class="llx-slide" src="estudio-principal.webp" alt="Estúdio principal do Lumi Lux com fundo branco e iluminação montada" loading="lazy" style="object-position:center 46%;">
+    </div>
     <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(12,12,11,.95) 0%, rgba(12,12,11,.86) 38%, rgba(12,12,11,.42) 78%, rgba(12,12,11,.55) 100%);"></div>
     <div style="position:absolute;inset:0;background:radial-gradient(58% 52% at 80% 16%, rgba(255,216,157,.30), rgba(255,216,157,0) 72%);"></div>
     <div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(to top, rgba(12,12,11,.92), rgba(12,12,11,0));"></div>
@@ -167,6 +180,12 @@
         <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding-top:6px;">
           <a href="#reservar" class="llx-btn-light" style="padding:17px 36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;"><span data-t="hero.book">Reservar estúdio</span></a>
           <a href="#espacos" class="llx-btn-outline-light" style="padding:17px 36px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;"><span data-t="hero.viewSpace">Explorar o espaço</span></a>
+        </div>
+
+        <div class="llx-pontos" id="llx-hero-pontos" role="group" aria-label="Fotografias do estúdio">
+          <button class="llx-ponto" type="button" aria-current="true" aria-label="Cenário de Natal"><i></i></button>
+          <button class="llx-ponto" type="button" aria-current="false" aria-label="Sala de estar"><i></i></button>
+          <button class="llx-ponto" type="button" aria-current="false" aria-label="Estúdio principal"><i></i></button>
         </div>
 
       </div>
@@ -1177,6 +1196,50 @@ const TRANSLATIONS = {
   var saved = null;
   try { saved = localStorage.getItem('llx-lang'); } catch (e) {}
   apply(saved === 'en' ? 'en' : 'pt');
+})();
+</script>
+<script>
+/* Slideshow da capa — passa sozinho, para quando o rato esta em cima
+   ou quando o separador nao esta visivel. */
+(function () {
+  var caixa = document.getElementById('llx-hero-slides');
+  var barra = document.getElementById('llx-hero-pontos');
+  if (!caixa || !barra) return;
+  var fotos = caixa.querySelectorAll('.llx-slide');
+  var pontos = barra.querySelectorAll('.llx-ponto');
+  if (fotos.length < 2) return;
+
+  var actual = 0, timer = null, parado = false;
+  var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function mostrar(i) {
+    actual = (i + fotos.length) % fotos.length;
+    for (var n = 0; n < fotos.length; n++) {
+      fotos[n].classList.toggle('on', n === actual);
+      pontos[n].setAttribute('aria-current', n === actual ? 'true' : 'false');
+    }
+  }
+  function arranca() {
+    if (calmo || parado || timer) return;
+    timer = setInterval(function () { mostrar(actual + 1); }, 6500);
+  }
+  function para() { if (timer) { clearInterval(timer); timer = null; } }
+
+  for (var k = 0; k < pontos.length; k++) {
+    (function (i) {
+      pontos[i].addEventListener('click', function () {
+        mostrar(i); para(); arranca();
+      });
+    })(k);
+  }
+
+  caixa.parentNode.addEventListener('mouseenter', function () { parado = true; para(); });
+  caixa.parentNode.addEventListener('mouseleave', function () { parado = false; arranca(); });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { para(); } else { arranca(); }
+  });
+
+  arranca();
 })();
 </script>
 </body>
